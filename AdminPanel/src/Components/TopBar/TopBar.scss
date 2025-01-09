@@ -1,0 +1,75 @@
+.TopBar{
+  width: 100%;
+  height: 60px;
+  background-color: rgb(28, 28, 28);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  border-radius: 0px 0px 8px 8px;
+
+  .TopBarWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 20px;
+
+    .leftSection{
+      height:60px;
+      width: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      img{
+        height: 50px;
+        object-fit: fill;
+        
+      }
+      span{
+        margin-top: 10px;
+        font-size: large;
+      }
+      
+    }
+
+    .rightSection{
+      height: 100%;
+      .rightSectionWrapper{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        position: relative;
+
+       
+
+        .icon{
+          position: relative;
+          cursor: pointer;
+        }
+
+        .badge{
+          display: flex;
+          justify-content: center;
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          top: -10px;
+          left: 10px;
+          border-radius: 50%;
+          background-color: red;
+        }
+        
+        .Aavtar{
+          height: 35px;
+          width: 35px;
+          object-fit: fill;
+          border-radius: 25%;
+          cursor: pointer;
+        }
+        
+      }
+      
+    }
+
+  }
+}

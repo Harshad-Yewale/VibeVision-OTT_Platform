@@ -1,0 +1,73 @@
+.widgetSmall{
+  flex: 2;
+  padding: 20px;
+  margin-left: 20px;
+  box-shadow: 0px 0px 18px 4px rgba(0,0,0,0.1);
+
+  .widgetSmallTitle{
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  .widgetSmallList{
+    list-style: none;
+    margin: 15px 10px;
+    padding: 0;
+    padding-top: 10px;
+    
+    
+
+    .widgetSmallListItem{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 30px 0px;
+      
+
+
+      .widgetSmallProfileImg{
+        height: 35px;
+        width: 35px;
+        object-fit: fill;
+        border-radius: 50%;
+      }
+
+      .widgetSmallUserInfo{
+        font-size: medium;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        .widgetSmalluserName{
+          color: black;
+        }
+
+        .widgetSmalljobTitle{
+          font-size: small;
+        }
+      }
+    }
+    .widgetSmallButton{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 10px;
+      border: none;
+      background-color: rgb(51, 51, 51);
+      color: white;
+      border-radius: 12px;
+      cursor: pointer;
+
+      .icon{
+        font-size: 16px;
+        margin-right: 6px;
+      }
+      &:hover{
+        background-color: rgb(6, 187, 6);
+        color: white;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,38 @@
+import React from 'react'
+import './TopBar.scss'
+import {NotificationsNoneOutlined, LanguageOutlined, SettingsOutlined} from '@mui/icons-material'
+import { Paper } from '@mui/material'
+import { Link } from 'react-router-dom'
+
+function TopBar() {
+  return (
+    <Paper className='TopBar' elevation={4} style={{backgroundColor:"black",color:"white"}} >
+      <div className="TopBarWrapper">
+        <div className="leftSection"> 
+          <Link to='./' className='Link'>
+            <img src='../../images/logo.png' alt='logo'/>
+            </Link>
+            <span>Admin-Dashboard</span>
+        </div>
+        <div className="rightSection">
+          <div className="rightSectionWrapper">
+            <div className='icon'>
+            <NotificationsNoneOutlined />
+            <span className='badge'>2</span>
+            </div>
+            <div className='icon'>
+            <LanguageOutlined className='icon'/>
+            <span className='badge'>2</span>
+            </div>
+            <div className='icon'>
+            <SettingsOutlined className='icon'/>
+            </div>
+            <img className='Aavtar' src='../../images/profile.jpg' alt='Avtar'/>
+          </div>
+        </div>
+       </div>
+    </Paper>
+  )
+}
+
+export default TopBar

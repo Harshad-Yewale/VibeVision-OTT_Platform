@@ -1,0 +1,74 @@
+.newUser{
+  flex: 4;
+  padding: 20px;
+  margin: 5px 12px;
+  .formArea{
+    padding: 12px 15px;
+  }
+
+  .newUserForm{
+    
+    display: flex;
+    flex-wrap: wrap;
+    
+  }
+  .newUserTitle{
+    margin-bottom: 12px;
+  }
+
+  .newUserItem{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    margin-right: 10px;
+
+    label{
+      margin-bottom: 10px;
+      font-size: medium;
+      font-weight: 500;
+      text-transform: capitalize;
+    }
+    input{
+      padding: 16px 12px;
+      margin-bottom: 12px;
+      border-radius: 12px;
+      border: 1px solid black;
+    }
+
+    .newUserGender{
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      label{
+        font-size: 18px;
+      }
+      
+    }
+    .newUserSelect{
+      padding: 10px 15px;
+      max-width: 130px;
+    }
+  }
+  .newUserBtn{
+    align-self: center;
+    padding: 10px 18px;
+    margin: 0 15px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(44, 114, 212);
+    border: 1px solid rgb(44, 114, 212) ;
+    font-size: medium;
+    font-weight: 400;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: all 0.3s ease-in-out;
+    &:hover{
+      background-color: rgb(44, 114, 212) ;
+      color: white;
+      border: none;
+    }
+ 
+    }
+  
+}
