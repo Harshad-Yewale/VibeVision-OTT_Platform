@@ -3,3 +3,12 @@
   --intial-color:#c2c2c2;
   --hover-color:white;
 }
+
+.Link{
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+  &:hover{
+    color: var(--hover-color);
+  }
+}

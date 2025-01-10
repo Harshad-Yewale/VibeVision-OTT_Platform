@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Navbar.scss';
 import {Search,Person2Outlined,KeyboardArrowDownOutlined} from '@mui/icons-material';
 import { padding } from '@mui/system';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -16,9 +17,15 @@ function Navbar() {
       <div className='container'>
         <div className="leftSection">
           <img className='logo' src='../../images/logo.png' alt='logo'></img>
+          <Link to="/" className='Link'>
           <span>HomePage</span>
+          </Link>
+          <Link to="/Movie" className='Link'>
           <span>Movies</span>
+          </Link>
+          <Link to="/Series" className='Link'>
           <span>Series</span>
+          </Link>
           <span>New-and-Popular</span>
           <span>My List</span>
         </div>

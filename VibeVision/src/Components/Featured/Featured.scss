@@ -2,6 +2,8 @@
   padding: 0 2px;
   position: relative;
 
+
+
   .category{
     position: absolute;
     display: flex;
@@ -20,6 +22,10 @@
     cursor: pointer;
 
     }
+  }
+
+  .Container{
+    height: 525px;
   }
 
   img{
@@ -43,10 +49,12 @@
       width: 420px;
       height: 200px;
       object-fit: contain;
+      margin-bottom: 10px;
+      
      
     }
     .desc{
-      margin-top:-30px ;
+      margin-top:30px ;
       margin-bottom: 10px;
       font-size: large;
       font-weight: 450;
@@ -55,6 +63,7 @@
     .buttons{
       display: flex;
       flex-direction: row;
+      margin-top: 10px;
 
       button{
         padding: 8px 12px;
