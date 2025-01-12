@@ -1,6 +1,6 @@
 import React from 'react'
 import './SideBar.scss'
-import {CottageOutlined, TimelineOutlined, TrendingUpOutlined, PeopleAltOutlined, StorefrontOutlined, AttachMoneyOutlined, BarChartOutlined, EmailOutlined, FeedbackOutlined, ChatBubbleOutlineOutlined, WorkOutlineOutlined, ReportGmailerrorredOutlined} from '@mui/icons-material'
+import {CottageOutlined, TimelineOutlined, TrendingUpOutlined, PeopleAltOutlined, MovieFilter, AttachMoneyOutlined, BarChartOutlined, EmailOutlined, FeedbackOutlined, ChatBubbleOutlineOutlined, WorkOutlineOutlined, ReportGmailerrorredOutlined} from '@mui/icons-material'
 import { Paper } from '@mui/material'
 import { Link , NavLink} from 'react-router-dom'
 
@@ -37,10 +37,10 @@ function SideBar() {
             </li>
             </Link>
             
-            <Link to="./Products" className='Link'>
+            <Link to="./Movies" className='Link'>
             <li className="listItem">
-            <StorefrontOutlined className='sideBarIcon'/>
-            <span>Products</span>
+            < MovieFilter className='sideBarIcon'/>
+            <span>Movies</span>
             </li>
             </Link>
         

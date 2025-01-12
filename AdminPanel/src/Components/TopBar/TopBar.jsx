@@ -3,8 +3,16 @@ import './TopBar.scss'
 import {NotificationsNoneOutlined, LanguageOutlined, SettingsOutlined} from '@mui/icons-material'
 import { Paper } from '@mui/material'
 import { Link } from 'react-router-dom'
+import { AuthContext, AuthContextProvider } from '../../context/authContext/AuthContext'
+import { useContext } from 'react'
 
 function TopBar() {
+  const { dispatch } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    dispatch({ type: "LOGOUT" });
+    localStorage.removeItem("user"); 
+  };
   return (
     <Paper className='TopBar' elevation={4} style={{backgroundColor:"black",color:"white"}} >
       <div className="TopBarWrapper">
@@ -28,6 +36,7 @@ function TopBar() {
             <SettingsOutlined className='icon'/>
             </div>
             <img className='Aavtar' src='../../images/profile.jpg' alt='Avtar'/>
+            <button className='logout' onClick={handleLogout}>Logout</button>
           </div>
         </div>
        </div>

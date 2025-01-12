@@ -66,10 +66,27 @@
           border-radius: 25%;
           cursor: pointer;
         }
+
+        .logout{
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          cursor: pointer;
+          padding: 5px 10px;
+          border-radius: 5px;
+          background-color:inherit;
+          border: 1px solid white;
+          color: white;
+
+          &:hover{
+            background-color: white;
+            color: black;
+          }
         
       }
       
     }
 
   }
+}
 }

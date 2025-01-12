@@ -14,6 +14,11 @@ mongoose.connect(process.env.MONGO_URL, {}).then(() => {
     console.log(err);
 });
 
+app.use((err, req, res, next) => {
+    console.error("Unhandled Error:", err);
+    res.status(500).json({ message: "An unexpected error occurred", error: err.message });
+});
+
 app.use(express.json());
 
 app.use("/api/auth", authRoute);
