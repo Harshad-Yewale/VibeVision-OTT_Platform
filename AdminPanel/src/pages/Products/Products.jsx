@@ -1,13 +1,35 @@
-import React from 'react'
-import { Link } from "react-router-dom";
+import React ,{useState,useEffect}from 'react'
+import { Link, useLocation, useParams,} from "react-router-dom";
 import "./Products.scss";
-import Chart from "../../Components/Chart/Chart"
-import {ProductsData} from "../../dummyData/DummyData"
 import { Publish } from "@mui/icons-material";
 import { Paper } from '@mui/material';
+import "../ProductList/ProductList"
+import axios from 'axios';
 
 function Products() {
+    const { id } = useParams();  
+  const [movie, setMovie] = useState(null);
+
+  
+  useEffect(() => {
+    const getMovie = async () => {
+      try {
+        const res = await axios.get("/movies/find/"+id, {
+          headers: {
+            token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3N2U4NmI4N2U5MmVjM2FiN2RhMDljMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTczNjQxMjcwMiwiZXhwIjoxNzM2ODQ0NzAyfQ.-Sd2YSi4b0u9F1aLrKb5ujf-t7nURflb_vH70e9zKuk",
+          },
+        });
+        setMovie(res.data);
+      } catch (err) { 
+        console.log(err);
+      }
+    }
+    getMovie();
+  }, [id]);
+
+  if(movie){
   return (
+    
     <div className='Products'>
       <div className="productTitleContainer">
         <h1 className="productTitle">Product</h1>
@@ -16,30 +38,27 @@ function Products() {
         </Link>
       </div>
       <Paper  elevation={3} className="productTop">
-          <div className="productTopLeft">
-              <Chart data={ProductsData} dataKey="Sales" title="Sales Performance"/>
-          </div>
           <div className="productTopRight">
               <div className="productInfoTop">
-                  <img src="../../../images/profile.jpg" alt="logo" className="productInfoImg" />
-                  <span className="productName">Apple Airpods</span>
+                  <img src={movie.img} alt="movie Img" className="productInfoImg" />
+                  <span className="productName">{movie.title}</span>
               </div>
               <div className="productInfoBottom">
                   <div className="productInfoItem">
                       <span className="productInfoKey">id:</span>
-                      <span className="productInfoValue">123</span>
+                      <span className="productInfoValue">{movie._id}</span>
                   </div>
                   <div className="productInfoItem">
-                      <span className="productInfoKey">sales:</span>
-                      <span className="productInfoValue">5123</span>
+                      <span className="productInfoKey">Genre:</span>
+                      <span className="productInfoValue">{movie.genre}</span>
                   </div>
                   <div className="productInfoItem">
-                      <span className="productInfoKey">active:</span>
-                      <span className="productInfoValue">yes</span>
+                      <span className="productInfoKey">Limit:</span>
+                      <span className="productInfoValue">{movie.limit}</span>
                   </div>
                   <div className="productInfoItem">
-                      <span className="productInfoKey">in stock:</span>
-                      <span className="productInfoValue">no</span>
+                      <span className="productInfoKey">is_Series:</span>
+                      <span className="productInfoValue">{movie.isSeries?"yes":"no"}</span>
                   </div>
               </div>
           </div>
@@ -47,22 +66,22 @@ function Products() {
       <Paper elevation={3} className="productBottom">
           <form className="productForm">
               <div className="productFormLeft">
-                  <label>Product Name</label>
-                  <input type="text" placeholder="Apple AirPod" />
-                  <label>In Stock</label>
-                  <select name="inStock" id="idStock">
-                      <option value="yes">Yes</option>
-                      <option value="no">No</option>
-                  </select>
-                  <label>Active</label>
-                  <select name="active" id="active">
-                      <option value="yes">Yes</option>
-                      <option value="no">No</option>
-                  </select>
+                  <label>Movie Title</label>
+                  <input type="text" placeholder={movie.title} />
+                  <label>Year</label>
+                  <input type="text" placeholder={movie.year} />
+                  <label>Genre</label>
+                  <input type="text" placeholder={movie.genre} />
+                  <label>Limit</label>
+                  <input type="text" placeholder={movie.limit} />
+                  <label>trailer</label>
+                  <input type="text" placeholder={movie.trailer} />
+                  <label>video</label>
+                  <input type="file" placeholder={movie.video} />
               </div>
               <div className="productFormRight">
                   <div className="productUpload">
-                      <img src="../../../images/profile.jpg" alt="" className="productUploadImg" />
+                      <img src={movie.img} alt="" className="productUploadImg" />
                       <label htmlFor="file">
                           <Publish/>
                       </label>
@@ -74,7 +93,10 @@ function Products() {
       </Paper>
       
     </div>
+
   )
+  
 }
+ }
 
 export default Products

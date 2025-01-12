@@ -53,11 +53,19 @@
 
   .productInfoBottom {
     margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    gap: 12px;
 
     .productInfoItem {
       width: 150px;
       display: flex;
       justify-content: space-between;
+
+      .productInfoKey{
+        margin-right: 20px;
+      }
 
       .productInfoValue {
         font-weight: 300;

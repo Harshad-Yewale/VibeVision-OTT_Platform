@@ -15,6 +15,10 @@ export default defineConfig({
         target: 'http://localhost:8800/api', 
         changeOrigin: true,
       },
+      '/movies': {
+        target: 'http://localhost:8800/api', 
+        changeOrigin: true,
+      },
     },
   },
 })
