@@ -24,15 +24,16 @@ function HomePage() {
             token:"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3N2U4NmI4N2U5MmVjM2FiN2RhMDljMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTczNjUxMzA1NCwiZXhwIjoxNzM2OTQ1MDU0fQ.KwEB0y7lOPB8e6ThGdMq0Nj50Kw26bd6hWO6ZQTAjKo",
           },
         })
-        console.log(res.data)
         const statsList=res.data.sort((a,b)=>{
           return a._id-b._id
         })  
-        statsList.map((item)=>{
-          return setUserStats((prev)=>[
-            ...prev,{name:MONTHS[item._id-1], "New Users":item.total}
-          ])
-        })
+
+        const formattedStats = statsList.map((item) => ({
+          name: MONTHS[item._id - 1],
+          "New Users": item.total,
+        }));
+  
+        setUserStats(formattedStats);
       }
       catch(err){
         console.log(err)
