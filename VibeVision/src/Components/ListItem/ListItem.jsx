@@ -63,7 +63,7 @@ function ListItem( {item}) {
           )}
         </div>
         <div className="itemInfoTop">
-          <span>movie.duration</span>
+          <span>{movie.duration}</span>
           <span className="limit">{movie.limit}</span>
           <span>{movie.year}</span>
         </div>
