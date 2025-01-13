@@ -1,5 +1,8 @@
 import React, { useState,useEffect } from 'react';
 import './NewProduct.scss';
+import { createMovie } from '../../context/movieContext/apiCalls';
+import { useContext } from 'react';
+import { MovieContext } from '../../context/movieContext/MovieContext';
 
 function NewProduct() {
   const [movie, setMovie] = useState(null);
@@ -8,23 +11,19 @@ function NewProduct() {
   const [imgSm, setImgSm] = useState(null);
   const [video, setVideo] = useState(null);
 
+  const {dispatch}= useContext(MovieContext)
+
   const handleChange = (e) => {
     const value = e.target.value;
     setMovie({ ...movie, [e.target.name]: value });
   };
 
-  const handleFileChange = (setter) => (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setter(file); // Update the state with the selected file
-    }
-  };
+  const handleSubmit=(e)=>{
+    createMovie(movie,dispatch)
 
-  useEffect(() => {
-    if (img) {
-      console.log('Image uploaded:', img);
-    }
-  }, [img]);
+  }
+  
+  console.log(movie)
 
   return (
     <div className="newProduct">
@@ -32,15 +31,15 @@ function NewProduct() {
       <form className="addProductForm">
         <div className="addProductItem">
           <label>Image</label>
-          <input type="file" id="img" name="img" onChange={handleFileChange(setImage)} />
+          <input type="text" placeholder="Avengers-banner.jpg" name="img" onChange={handleChange} />
         </div>
         <div className="addProductItem">
           <label>Title Image</label>
-          <input type="file" id="imgTitle" name="imgTitle" onChange={handleFileChange(setImageTitle)} />
+          <input type="text" placeholder='Avengers-title.jpg' name="imgTitle" onChange={handleChange} />
         </div>
         <div className="addProductItem">
           <label>Poster Image</label>
-          <input type="file" id="imgSm" name="imgSm" onChange={handleFileChange(setImgSm)} />
+          <input type="text" placeholder='Avengers-poster.jpg' name="imgSm" onChange={handleChange} />
         </div>
         <div className="addProductItem">
           <label>Title</label>
@@ -64,11 +63,11 @@ function NewProduct() {
         </div>
         <div className="addProductItem">
           <label>Trailer id</label>
-          <input type="text" id="trailer" name="trailer" onChange={handleChange} />
+          <input type="text" placeholder='your movie trailer id' name="trailer" onChange={handleChange} />
         </div>
         <div className="addProductItem">
           <label>Movie</label>
-          <input type="file" id="video" name="video" onChange={handleFileChange(setVideo)} />
+          <input type="text" placeholder='video path'  name="video" onChange={handleChange} />
         </div>
         <div className="addProductItem">
           <label>Is Series</label>
@@ -77,7 +76,7 @@ function NewProduct() {
             <option value="false">No</option>
           </select>
         </div>
-        <button className="addProductButton">Create</button>
+        <button className="addProductButton" onClick={handleSubmit}>Create</button>
       </form>
     </div>
   );

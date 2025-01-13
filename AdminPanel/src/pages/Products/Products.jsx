@@ -5,11 +5,15 @@ import { Publish } from "@mui/icons-material";
 import { Paper } from '@mui/material';
 import "../ProductList/ProductList"
 import axios from 'axios';
+import { MovieContext } from '../../context/movieContext/MovieContext';
+import { updateMovie } from '../../context/movieContext/apiCalls';
+import { useContext } from 'react';
 
 function Products() {
     const { id } = useParams();  
   const [movie, setMovie] = useState(null);
-
+  const [updatedMovie, setUpdateMovie] = useState(null);
+  const {dispatch}= useContext(MovieContext)
   
   useEffect(() => {
     const getMovie = async () => {
@@ -20,12 +24,26 @@ function Products() {
           },
         });
         setMovie(res.data);
+        setUpdateMovie(res.data);
       } catch (err) { 
         console.log(err);
       }
     }
     getMovie();
   }, [id]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUpdateMovie((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+  console.log(updatedMovie)
+
+  const handleSubmit=(e)=>{
+     updateMovie(id,updatedMovie, dispatch)
+  }
 
   if(movie){
   return (
@@ -64,30 +82,90 @@ function Products() {
           </div>
       </Paper>
       <Paper elevation={3} className="productBottom">
-          <form className="productForm">
-              <div className="productFormLeft">
-                  <label>Movie Title</label>
-                  <input type="text" placeholder={movie.title} />
-                  <label>Year</label>
-                  <input type="text" placeholder={movie.year} />
-                  <label>Genre</label>
-                  <input type="text" placeholder={movie.genre} />
-                  <label>Limit</label>
-                  <input type="text" placeholder={movie.limit} />
-                  <label>trailer</label>
-                  <input type="text" placeholder={movie.trailer} />
-                  <label>video</label>
-                  <input type="file" placeholder={movie.video} />
-              </div>
+        <form className="productForm" onSubmit={handleSubmit}>
+          <div className="productFormLeft">
+            <label>Movie Title</label>
+            <input
+              type="text"
+              value={updatedMovie.title || ''}
+              name="title"
+              onChange={handleChange}
+            />
+            <label>Description</label>
+            <input
+              type="text"
+              value={updatedMovie.desc || ''}
+              name="desc"
+              onChange={handleChange}
+            />
+            <label>Year</label>
+            <input
+              type="text"
+              value={updatedMovie.year || ''}
+              name="year"
+              onChange={handleChange}
+            />
+            <label>Genre</label>
+            <input
+              type="text"
+              value={updatedMovie.genre || ''}
+              name="genre"
+              onChange={handleChange}
+            />
+            <label>Limit</label>
+            <input
+              type="text"
+              value={updatedMovie.limit || ''}
+              name="limit"
+              onChange={handleChange}
+            />
+             <label>Duration</label>
+            <input
+              type="text"
+              value={updatedMovie.duration || ''}
+              name="duration"
+              onChange={handleChange}
+            />
+              <label>isSeries ?</label>
+              <select name="isSeries" id="isSeries" onChange={handleChange}>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </select>
+            <label>Trailer</label>
+            <input
+              type="text"
+              value={updatedMovie.trailer || ''}
+              name="trailer"
+              onChange={handleChange}
+            />
+            <label>Video</label>
+            <input
+              type="text"
+              value={updatedMovie.video || ''}
+              name="video"
+              onChange={handleChange}
+            />
+            </div>
               <div className="productFormRight">
                   <div className="productUpload">
                       <img src={movie.img} alt="" className="productUploadImg" />
                       <label htmlFor="file">
-                          <Publish/>
                       </label>
-                      <input type="file" id="file" style={{display:"none"}} />
+                      <input type="text" placeholder='movie Banner' name='img'  onChange={handleChange} />
                   </div>
-                  <button className="productButton">Update</button>
+                  <div className="productUpload">
+                      <img src={movie.imgTitle} alt="" className="productUploadImg" />
+                      <label htmlFor="file">
+                      </label>
+                      <input type="text" placeholder='movie title' name='imgTitle'  onChange={handleChange} />
+                  </div>
+                  <div className="productUpload">
+                      <img src={movie.imgSm} alt="" className="productUploadImg" />
+                      <label htmlFor="file">
+                      </label>
+                      <input type="text" placeholder='movieposter' name='imgSm' onChange={handleChange} />
+                  </div>
+                  <button type='submit' className="productButton">Update</button>
               </div>
           </form>
       </Paper>

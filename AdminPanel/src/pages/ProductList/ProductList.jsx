@@ -20,9 +20,9 @@ function ProductList() {
 
 
   console.log(movies)
-    const handleData=(id)=>{
-     
-        deleteMovie(id,dispatch)
+    const handleData=(item)=>{
+        console.log(item._id)
+        deleteMovie(item._id,dispatch)
     }
 
     const columns = [
@@ -30,7 +30,7 @@ function ProductList() {
         { field: 'movie', headerName: 'Movies', width: 280, renderCell:(params)=>{
           return (
             <div className="ProductListUser">
-            <img src={params.row.Img} alt=""/>
+            <img src={params.row.img} alt=""/>
             {params.row.title}
             </div>)
         }},

@@ -26,7 +26,20 @@
   .productTopLeft,
   .productTopRight {
     flex: 1;
+    
   }
+
+  .productFormLeft{
+    max-height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+
+    label,input,select{
+      margin-right: 120px;
+    }
+  }
+   
+  
   .productTopRight {
     padding: 20px;
     margin: 20px;
