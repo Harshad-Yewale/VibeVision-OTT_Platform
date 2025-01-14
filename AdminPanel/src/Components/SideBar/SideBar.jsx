@@ -1,6 +1,6 @@
 import React from 'react'
 import './SideBar.scss'
-import {CottageOutlined, TimelineOutlined, TrendingUpOutlined, PeopleAltOutlined, MovieFilter, AttachMoneyOutlined, BarChartOutlined, EmailOutlined, FeedbackOutlined, ChatBubbleOutlineOutlined, WorkOutlineOutlined, ReportGmailerrorredOutlined} from '@mui/icons-material'
+import {CottageOutlined, TimelineOutlined, TrendingUpOutlined, PeopleAltOutlined, MovieFilter, FormatListBulleted, BarChartOutlined, EmailOutlined, FeedbackOutlined, ChatBubbleOutlineOutlined, WorkOutlineOutlined, ReportGmailerrorredOutlined} from '@mui/icons-material'
 import { Paper } from '@mui/material'
 import { Link , NavLink} from 'react-router-dom'
 
@@ -43,48 +43,15 @@ function SideBar() {
             <span>Movies</span>
             </li>
             </Link>
-        
+            <Link to="./contentlists" className='Link'>
             <li className="listItem">
-            <AttachMoneyOutlined className='sideBarIcon'/>
-            <span>Transaction</span>
+            <FormatListBulleted className='sideBarIcon'/>
+            <span>content Lists</span>
             </li>
+            </Link>
             <li className="listItem">
             <BarChartOutlined className='sideBarIcon'/>
             <span>Report</span>
-            </li>
-          </ul>
-        </div>
-        <div className="sideBarMenu">
-          <div className="sideBarTitle">Notification</div>
-          <ul className='sideBarList'>
-            <li className="listItem ">
-              <EmailOutlined className='sideBarIcon'/>
-              <span>Mail</span>
-            </li>
-            <li className="listItem">
-            <FeedbackOutlined className='sideBarIcon'/>
-            <span>Feedback</span>
-            </li>
-            <li className="listItem">
-            <ChatBubbleOutlineOutlined className='sideBarIcon'/>
-            <span>Message</span>
-            </li>
-          </ul>
-        </div>
-        <div className="sideBarMenu">
-          <div className="sideBarTitle">Staff</div>
-          <ul className='sideBarList'>
-            <li className="listItem ">
-              <WorkOutlineOutlined className='sideBarIcon'/>
-              <span>Manage</span>
-            </li>
-            <li className="listItem">
-            <TimelineOutlined className='sideBarIcon'/>
-            <span>Analytics</span>
-            </li>
-            <li className="listItem">
-            <ReportGmailerrorredOutlined className='sideBarIcon'/>
-            <span>Reports</span>
             </li>
           </ul>
         </div>

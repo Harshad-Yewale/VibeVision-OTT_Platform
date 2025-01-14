@@ -21,7 +21,7 @@ function HomePage() {
       try{
         const res=await axios.get("users/stats",{
           headers:{
-            token:"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3N2U4NmI4N2U5MmVjM2FiN2RhMDljMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTczNjUxMzA1NCwiZXhwIjoxNzM2OTQ1MDU0fQ.KwEB0y7lOPB8e6ThGdMq0Nj50Kw26bd6hWO6ZQTAjKo",
+            token:"Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
           },
         })
         const statsList=res.data.sort((a,b)=>{

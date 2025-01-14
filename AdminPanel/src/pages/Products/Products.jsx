@@ -6,7 +6,7 @@ import { Paper } from '@mui/material';
 import "../ProductList/ProductList"
 import axios from 'axios';
 import { MovieContext } from '../../context/movieContext/MovieContext';
-import { updateMovie } from '../../context/movieContext/apiCalls';
+import { updateMovie  } from '../../context/movieContext/apiCalls';
 import { useContext } from 'react';
 
 function Products() {
@@ -20,7 +20,7 @@ function Products() {
       try {
         const res = await axios.get("/movies/find/"+id, {
           headers: {
-            token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3N2U4NmI4N2U5MmVjM2FiN2RhMDljMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTczNjQxMjcwMiwiZXhwIjoxNzM2ODQ0NzAyfQ.-Sd2YSi4b0u9F1aLrKb5ujf-t7nURflb_vH70e9zKuk",
+            token: "Bearer "+ JSON.parse(localStorage.getItem("user")).accessToken,
           },
         });
         setMovie(res.data);
@@ -85,66 +85,26 @@ function Products() {
         <form className="productForm" onSubmit={handleSubmit}>
           <div className="productFormLeft">
             <label>Movie Title</label>
-            <input
-              type="text"
-              value={updatedMovie.title || ''}
-              name="title"
-              onChange={handleChange}
-            />
+            <input type="text" value={updatedMovie.title || ''} name="title" onChange={handleChange} />
             <label>Description</label>
-            <input
-              type="text"
-              value={updatedMovie.desc || ''}
-              name="desc"
-              onChange={handleChange}
-            />
+            <input type="text" value={updatedMovie.desc || ''} name="desc" onChange={handleChange} />
             <label>Year</label>
-            <input
-              type="text"
-              value={updatedMovie.year || ''}
-              name="year"
-              onChange={handleChange}
-            />
+            <input type="text" value={updatedMovie.year || ''} name="year" onChange={handleChange} />
             <label>Genre</label>
-            <input
-              type="text"
-              value={updatedMovie.genre || ''}
-              name="genre"
-              onChange={handleChange}
-            />
+            <input type="text" value={updatedMovie.genre || ''} name="genre" onChange={handleChange} />
             <label>Limit</label>
-            <input
-              type="text"
-              value={updatedMovie.limit || ''}
-              name="limit"
-              onChange={handleChange}
-            />
+            <input type="text" value={updatedMovie.limit || ''} name="limit" onChange={handleChange}/>
              <label>Duration</label>
-            <input
-              type="text"
-              value={updatedMovie.duration || ''}
-              name="duration"
-              onChange={handleChange}
-            />
+            <input type="text" value={updatedMovie.duration || ''} name="duration" onChange={handleChange} />
               <label>isSeries ?</label>
               <select name="isSeries" id="isSeries" onChange={handleChange}>
                 <option value="true">Yes</option>
                 <option value="false">No</option>
               </select>
             <label>Trailer</label>
-            <input
-              type="text"
-              value={updatedMovie.trailer || ''}
-              name="trailer"
-              onChange={handleChange}
-            />
+            <input type="text" value={updatedMovie.trailer || ''} name="trailer" onChange={handleChange} />
             <label>Video</label>
-            <input
-              type="text"
-              value={updatedMovie.video || ''}
-              name="video"
-              onChange={handleChange}
-            />
+            <input type="text" value={updatedMovie.video || ''} name="video" onChange={handleChange} />
             </div>
               <div className="productFormRight">
                   <div className="productUpload">

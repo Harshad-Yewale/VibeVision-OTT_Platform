@@ -14,7 +14,7 @@ function ListItem( {item}) {
       try {
         const res = await axios.get("/movies/find/"+item, {
           headers: {
-            token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3N2U4NmI4N2U5MmVjM2FiN2RhMDljMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTczNjQxMjcwMiwiZXhwIjoxNzM2ODQ0NzAyfQ.-Sd2YSi4b0u9F1aLrKb5ujf-t7nURflb_vH70e9zKuk",
+            token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
           },
         });
         

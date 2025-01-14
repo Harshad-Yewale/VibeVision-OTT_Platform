@@ -7,8 +7,9 @@ function WatchPage() {
   const location = useLocation();
   const navigate = useNavigate();
   const movie = location.state.movie;
+  console.log(location)
   const trailer = "https://www.youtube.com/embed/" + movie.trailer; 
-
+  
 
   return (
     <div className="WatchPage">

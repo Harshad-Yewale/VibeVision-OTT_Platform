@@ -1,3 +1,5 @@
+@use "../../app" as app;
+
 .Navbar{
   font-size: 14px;
   width: 100%;
@@ -35,6 +37,11 @@
           height: 50px;
           object-fit: fill;
           transition: all 0.4s;
+
+          @include app.mobile {
+            display: none;
+          }
+          
         }
         
 
@@ -43,6 +50,16 @@
           font-size: 20px;
           color: var(--intial-color);
           transition: all 0.2s;
+
+          @include app.tablet {
+            display: none;
+          }
+  
+          &.navbarmainLinks {
+            @include app.tablet {
+              display:block;
+            }
+          }
         }
 
         .logo:hover{
@@ -61,7 +78,8 @@
         display: flex;
         flex-direction: row;
         cursor: pointer;
-        
+        align-items: center;
+        justify-content: center;
         
 
         .icon{
@@ -70,9 +88,20 @@
           font-weight: bold ;
         }
         .profile{
+          display: flex;
+          align-items: center;
+          justify-content: center;
 
           .icon{
             margin: 0 ;
+          }
+          .user{
+        
+            padding: 2px 5px;
+            border-bottom: 2px solid white;
+            border-radius: 12px;
+            font-size: large;
+            font-weight: 500;
           }
 
           .options{
@@ -81,18 +110,20 @@
 
           &:hover{
             .options{
-              font-size: 20px;
+              font-size: 18px;
               background-color: var(--main-color);
               display: flex;
               flex-direction: column;
               position: absolute;
-              right: 2px;
+              right: 25px;
+              top: 45px;
               padding: 2px 12px;
               margin: 0;
               align-items: stretch;
               justify-content: space-around;
-              height: 100px;
-              
+              height: 50px;
+              border: 2px solid white;
+              border-radius: 12px;
               
             }
             

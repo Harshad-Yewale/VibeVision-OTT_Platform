@@ -3,13 +3,19 @@ import './Navbar.scss';
 import {Search,Person2Outlined,KeyboardArrowDownOutlined} from '@mui/icons-material';
 import { padding } from '@mui/system';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../authContext/AuthContext';
+import { logout } from '../../authContext/AuthActions';
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const {dispatch}=useContext(AuthContext)
+  const user=JSON.parse(localStorage.getItem("user"))
+  const username=user.username;
 
   window.onscroll=()=>{
     setIsScrolled(window.scrollY ===0 ? false : true);
-    return ()=> window.onscroll==null;
+     return ()=> window.onscroll==null;
   }
 
   return (
@@ -20,11 +26,11 @@ function Navbar() {
           <Link to="/" className='Link'>
           <span>HomePage</span>
           </Link>
-          <Link to="/Movie" className='Link'>
-          <span>Movies</span>
+          <Link to="/Movie" className=' Link'>
+          <span className='navbarmainLinks'>Movies</span>
           </Link>
-          <Link to="/Series" className='Link'>
-          <span>Series</span>
+          <Link to="/Series" className=' Link'>
+          <span className='navbarmainLinks'>Series</span>
           </Link>
           <span>New-and-Popular</span>
           <span>My List</span>
@@ -35,10 +41,10 @@ function Navbar() {
           
           <div className="profile">
           <Person2Outlined className='icon'/>
+          <span className='user'>{username}</span>
           <KeyboardArrowDownOutlined className='icon'/>
           <div className="options">
-             <span style={{paddingBottom:'4px', borderBottom:'1px solid white'}} >Settings</span>
-             <span style={{paddingBottom:'4px', borderBottom:'1px solid white'}} >Log Out</span>
+             <span style={{paddingBottom:'4px', borderBottom:'1px solid white'}}  onClick={()=>{dispatch(logout())}} >Log Out</span>
           </div>
           </div>
         </div>

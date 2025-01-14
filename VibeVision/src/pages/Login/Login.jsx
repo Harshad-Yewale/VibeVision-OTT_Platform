@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import "../Login/login.scss";
 import Register from "../Register/Register";
+import { login } from "../../authContext/apiCalls";
+import { useContext } from "react";
+import { AuthContext } from "../../authContext/AuthContext";
 
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: ""
   });
+  const {dispatch}=useContext(AuthContext)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -15,7 +19,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Implement registration logic here
+    login(formData,dispatch)
     console.log("Form Submitted:", formData);
   };
 
@@ -46,11 +50,11 @@ const Login = () => {
             onChange={handleChange}
             required
           />
-          <button type="submit" className="Login-btn">
+          <button type="submit" className="Login-btn" onChange={handleSubmit}>
            Sign In 
           </button>
           <p>
-            New User? <a href="./Register/Register.jsx">Create Account</a>
+            New User? <a href="./Register">Create Account</a>
           </p>
         </form>
       </div>

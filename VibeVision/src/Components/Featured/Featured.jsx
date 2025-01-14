@@ -2,29 +2,31 @@ import { useState , useEffect } from 'react'
 import './Featured.scss'
 import {PlayArrow, InfoOutlined} from '@mui/icons-material';
 import axios from 'axios';
-function Featured({type}) {
+import {Link} from "react-router-dom"
+import WatchPage from "../../pages/WatchPage/WatchPage.jsx"
+function Featured({type},{setGenre}) {
 
-  const [content, setContent] = useState({});
+  const [movie, setmovie] = useState({});
 
   useEffect(() => {
     const getFeatured = async () => {
       try {
         const res = await axios.get(`/movies/random?type=${type}`);
-        setContent(res.data[0]);
+        setmovie(res.data[0]);
       } catch (err) {
         console.log(err);
       }
     };
     getFeatured();
   } , [type]);
-  console.log(content);
+  
   
   return (
     <div className='featured'> 
     {type && (
       <div className="category">
         <span>{type === "Movie"? "Movie" : "Series"}</span>
-        <select name='Genre' id='genre'>
+        <select name='Genre' id='genre' onChange={e=>setGenre(e.target.value) }>
           <option>Genre</option>
           <option value="adventure">Adventure</option>
           <option value="action">Action</option>
@@ -43,15 +45,16 @@ function Featured({type}) {
       </div>
     )}    
     <div className="Container">
-       <img  src={content.img} alt='banner' />
+       <img  src={movie.img} alt='banner' />
       <div className="info">
-        <img src={content.imgTitle} alt="title" />
+        <img src={movie.imgTitle} alt="title" />
         <span className='desc'>
-          {content.desc}
+          {movie.desc}
         </span>
         <div className="buttons">
+         <Link to="/watchPage" state={{ movie }} className="Link">
           <button className='playButton'> <PlayArrow/> <span>Play Now</span></button>
-          <button className='Info'><InfoOutlined/> <span>info</span> </button>
+          </Link>
         </div>
       </div>
     </div>

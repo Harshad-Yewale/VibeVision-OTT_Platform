@@ -9,9 +9,12 @@ import NewUser from "./pages/NewUser/NewUser";
 import ProductList from "./pages/ProductList/ProductList";
 import Products from "./pages/Products/Products";
 import NewProduct from "./pages/NewProduct/NewProduct";
+import ContentList from "./pages/contentList/ContentList";
 import Login from "./pages/login/Login";
 import { AuthContext } from "./context/authContext/AuthContext";
 import "./App.scss";
+import NewList from "./pages/newlist/newList";
+import List from "./pages/list/List"
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -37,8 +40,12 @@ function App() {
                 <Route path="/user/:UserId" element={<User />} />
                 <Route path="/newUser" element={<NewUser />} />
                 <Route path="/movies" element={<ProductList />} />
-                <Route path="/product/:id" element={<Products />} />
+                <Route path="/Movie/:id" element={<Products />} />
                 <Route path="/newProduct" element={<NewProduct />} />
+                <Route path="/contentlists" element={<ContentList />} />
+                <Route path="/List/:id" element={<List />} />
+                <Route path="/newList" element={<NewList/>} />
+               
               </>
             )}
 

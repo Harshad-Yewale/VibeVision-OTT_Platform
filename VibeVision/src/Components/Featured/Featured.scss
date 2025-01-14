@@ -1,3 +1,5 @@
+@use "../../app" as app;
+
 .featured{
   padding: 0 2px;
   position: relative;
@@ -29,7 +31,7 @@
   }
 
   img{
-    height:500px;
+    height: 520px;
     width: 100%;
     object-fit:cover;
     border-radius: 0px 0px 12px 12px;
@@ -43,21 +45,29 @@
     flex-direction: column;
     position: absolute;
     left: 50px;
-    bottom: 130px;
+    bottom: 100px;
     color: white;
     img{
-      width: 420px;
-      height: 200px;
+      width: 42vw;
+      height: 20vh;
+      margin-left: -80px;
       object-fit: contain;
-      margin-bottom: 10px;
       
      
     }
     .desc{
-      margin-top:30px ;
+      margin-top:20px ;
       margin-bottom: 10px;
       font-size: large;
       font-weight: 450;
+
+      &{
+      @include app.mobile {
+        width: 80wh;
+      }
+
+    }
+      
     }
 
     .buttons{

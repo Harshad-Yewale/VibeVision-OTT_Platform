@@ -28,6 +28,7 @@ export const getMovies = async (dispatch) => {
   }
 };
 
+
 //create
 export const createMovie = async (movie, dispatch) => {
   dispatch(createMovieStart());
