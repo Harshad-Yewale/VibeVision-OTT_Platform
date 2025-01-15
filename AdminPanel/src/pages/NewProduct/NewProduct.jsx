@@ -6,10 +6,6 @@ import { MovieContext } from '../../context/movieContext/MovieContext';
 
 function NewProduct() {
   const [movie, setMovie] = useState(null);
-  const [img, setImage] = useState(null);
-  const [imgTitle, setImageTitle] = useState(null);
-  const [imgSm, setImgSm] = useState(null);
-  const [video, setVideo] = useState(null);
 
   const {dispatch}= useContext(MovieContext)
 

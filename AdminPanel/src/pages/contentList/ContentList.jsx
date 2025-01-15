@@ -2,9 +2,8 @@ import React, {useContext, useEffect, useState} from 'react'
 import "./contentList.scss"
 import { DataGrid } from '@mui/x-data-grid'
 import Paper from '@mui/material/Paper';
-
 import { DeleteOutline } from "@mui/icons-material";
-import {Link, useLocation} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import { ListContext } from '../../context/listContext/ListContext.jsx';
 import { deleteList, getLists } from '../../context/listContext/apiCalls.js';
 

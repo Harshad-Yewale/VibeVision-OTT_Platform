@@ -1,10 +1,9 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext, useEffect} from 'react'
 import "./ProductList.scss"
 import { DataGrid } from '@mui/x-data-grid'
 import Paper from '@mui/material/Paper';
-import { Productrows } from '../../dummyData/DummyData.jsx'
 import { DeleteOutline } from "@mui/icons-material";
-import {Link, useLocation} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import { MovieContext } from '../../context/movieContext/MovieContext.jsx';
 import { deleteMovie, getMovies } from '../../context/movieContext/apiCalls.js';
 

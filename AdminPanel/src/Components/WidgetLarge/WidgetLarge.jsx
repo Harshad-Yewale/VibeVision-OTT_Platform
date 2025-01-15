@@ -24,7 +24,7 @@ function WidgetLarge() {
               alt=""
               className="widgetLgImg"
             />
-            <span className="widgetLgName">Susan Carol</span>
+            <span className="widgetLgName">Harshad</span>
           </td>
           <td className="widgetLgDate">2 Jun 2021</td>
           <td className="widgetLgAmount">$122.00</td>
@@ -39,7 +39,7 @@ function WidgetLarge() {
               alt=""
               className="widgetLgImg"
             />
-            <span className="widgetLgName">Susan Carol</span>
+            <span className="widgetLgName">Harshad</span>
           </td>
           <td className="widgetLgDate">2 Jun 2021</td>
           <td className="widgetLgAmount">$122.00</td>
@@ -54,7 +54,7 @@ function WidgetLarge() {
               alt=""
               className="widgetLgImg"
             />
-            <span className="widgetLgName">Susan Carol</span>
+            <span className="widgetLgName">Harshad</span>
           </td>
           <td className="widgetLgDate">2 Jun 2021</td>
           <td className="widgetLgAmount">$122.00</td>
@@ -69,7 +69,7 @@ function WidgetLarge() {
               alt=""
               className="widgetLgImg"
             />
-            <span className="widgetLgName">Susan Carol</span>
+            <span className="widgetLgName">Harshad</span>
           </td>
           <td className="widgetLgDate">2 Jun 2021</td>
           <td className="widgetLgAmount">$122.00</td>

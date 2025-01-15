@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react';
 import './NewList.scss';
-import { createMovie, getMovies } from '../../context/movieContext/apiCalls';
+import {  getMovies } from '../../context/movieContext/apiCalls';
 import { useContext } from 'react';
 import { MovieContext } from '../../context/movieContext/MovieContext';
 import { ListContext } from '../../context/listContext/ListContext';

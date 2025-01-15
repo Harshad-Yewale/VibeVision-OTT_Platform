@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import './Navbar.scss';
 import {Search,Person2Outlined,KeyboardArrowDownOutlined} from '@mui/icons-material';
-import { padding } from '@mui/system';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../authContext/AuthContext';

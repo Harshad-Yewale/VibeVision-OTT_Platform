@@ -79,26 +79,11 @@ function Products() {
         <form className="productForm" onSubmit={handleSubmit}>
           <div className="productFormLeft">
             <label>List Title</label>
-            <input
-              type="text"
-              value={updatedList.title || ''}
-              name="title"
-              onChange={handleChange}
-            />
+            <input type="text" value={updatedList.title || ''} name="title" onChange={handleChange}  />
             <label>Type</label>
-            <input
-              type="text"
-              value={updatedList.type || ''}
-              name="year"
-              onChange={handleChange}
-            />
+            <input type="text" value={updatedList.type || ''} name="year" onChange={handleChange}  />
             <label>Genre</label>
-            <input
-              type="text"
-              value={updatedList.genre || ''}
-              name="genre"
-              onChange={handleChange}
-            />
+            <input type="text" value={updatedList.genre || ''} name="genre" onChange={handleChange}  />
             </div>
               <div className="productFormRight">
                   <button type='submit' className="productButton">Update</button>

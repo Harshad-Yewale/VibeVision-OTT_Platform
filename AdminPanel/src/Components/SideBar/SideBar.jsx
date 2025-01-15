@@ -1,8 +1,8 @@
 import React from 'react'
 import './SideBar.scss'
-import {CottageOutlined, TimelineOutlined, TrendingUpOutlined, PeopleAltOutlined, MovieFilter, FormatListBulleted, BarChartOutlined, EmailOutlined, FeedbackOutlined, ChatBubbleOutlineOutlined, WorkOutlineOutlined, ReportGmailerrorredOutlined} from '@mui/icons-material'
+import {CottageOutlined, TimelineOutlined, TrendingUpOutlined, PeopleAltOutlined, MovieFilter, FormatListBulleted, BarChartOutlined,} from '@mui/icons-material'
 import { Paper } from '@mui/material'
-import { Link , NavLink} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function SideBar() {
   return (

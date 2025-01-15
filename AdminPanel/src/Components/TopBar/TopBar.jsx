@@ -3,7 +3,7 @@ import './TopBar.scss'
 import {NotificationsNoneOutlined, LanguageOutlined, SettingsOutlined} from '@mui/icons-material'
 import { Paper } from '@mui/material'
 import { Link } from 'react-router-dom'
-import { AuthContext, AuthContextProvider } from '../../context/authContext/AuthContext'
+import { AuthContext} from '../../context/authContext/AuthContext'
 import { useContext } from 'react'
 
 function TopBar() {

@@ -10,10 +10,10 @@ import ProductList from "./pages/ProductList/ProductList";
 import Products from "./pages/Products/Products";
 import NewProduct from "./pages/NewProduct/NewProduct";
 import ContentList from "./pages/contentList/ContentList";
-import Login from "./pages/login/Login";
+import Login from "./pages/login/login";
 import { AuthContext } from "./context/authContext/AuthContext";
 import "./App.scss";
-import NewList from "./pages/newlist/newList";
+import NewList from "./pages/newlist/NewList";
 import List from "./pages/list/List"
 
 function App() {

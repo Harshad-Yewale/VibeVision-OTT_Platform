@@ -1,7 +1,6 @@
 import React ,{useState,useEffect}from 'react'
-import { Link, useLocation, useParams,} from "react-router-dom";
+import { Link, useParams,} from "react-router-dom";
 import "./Products.scss";
-import { Publish } from "@mui/icons-material";
 import { Paper } from '@mui/material';
 import "../ProductList/ProductList"
 import axios from 'axios';
