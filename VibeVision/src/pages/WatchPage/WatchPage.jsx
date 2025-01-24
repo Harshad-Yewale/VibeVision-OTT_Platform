@@ -23,7 +23,7 @@ function WatchPage() {
         <iframe
           width="100%"
           height="100%"
-          src={trailer}
+          src={`${trailer}?autoplay=1`}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         ></iframe>

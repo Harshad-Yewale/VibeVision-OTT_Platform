@@ -45,9 +45,9 @@ function Featured({type},{setGenre}) {
       </div>
     )}    
     <div className="Container">
-       <img  src={movie.img} alt='banner' />
+       <img  src={`/images/${movie.img}`} alt='banner' />
       <div className="info">
-        <img src={movie.imgTitle} alt="title" />
+        <img src={`/images/${movie.imgTitle}`} alt="title" />
         <span className='desc'>
           {movie.desc}
         </span>

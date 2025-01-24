@@ -50,6 +50,10 @@ function NewProduct() {
           <input type="text" placeholder="duration" name="duration" onChange={handleChange} />
         </div>
         <div className="addProductItem">
+          <label>Year</label>
+          <input type="text" placeholder="year" name="year" onChange={handleChange} />
+        </div>
+        <div className="addProductItem">
           <label>Genre</label>
           <input type="text" placeholder="genre" name="genre" onChange={handleChange} />
         </div>

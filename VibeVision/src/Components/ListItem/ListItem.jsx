@@ -42,7 +42,7 @@ function ListItem( {item}) {
  
   return (
     <div className='ListItem'>
-      <img src="/images/avengers-infinity-war-poster.webp" alt='poster'/>
+      <img src={`/images/${movie.imgSm}`} alt='poster'/>
       <div className="item-info">
       <span className='title'>{movie.title}</span>
         <div className="icon">

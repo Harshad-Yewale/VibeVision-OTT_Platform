@@ -107,19 +107,19 @@ function Products() {
             </div>
               <div className="productFormRight">
                   <div className="productUpload">
-                      <img src={movie.img} alt="" className="productUploadImg" />
+                      <img src={`/images/${movie.img}`} alt="" className="productUploadImg" />
                       <label htmlFor="file">
                       </label>
                       <input type="text" placeholder='movie Banner' name='img'  onChange={handleChange} />
                   </div>
                   <div className="productUpload">
-                      <img src={movie.imgTitle} alt="" className="productUploadImg" />
+                      <img src={`/images/${movie.imgTitle}`} alt="" className="productUploadImg" />
                       <label htmlFor="file">
                       </label>
                       <input type="text" placeholder='movie title' name='imgTitle'  onChange={handleChange} />
                   </div>
                   <div className="productUpload">
-                      <img src={movie.imgSm} alt="" className="productUploadImg" />
+                      <img src={`/images/${movie.imgSm}`} alt="" className="productUploadImg" />
                       <label htmlFor="file">
                       </label>
                       <input type="text" placeholder='movieposter' name='imgSm' onChange={handleChange} />
