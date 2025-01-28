@@ -1,14 +1,14 @@
 import React ,{useState,useEffect}from 'react'
 import { Link, useParams,} from "react-router-dom";
-import "./Products.scss";
+import "./Movies.scss";
 import { Paper } from '@mui/material';
-import "../ProductList/ProductList"
+import "../MovieList/MovieList"
 import axios from 'axios';
 import { MovieContext } from '../../context/movieContext/MovieContext';
 import { updateMovie  } from '../../context/movieContext/apiCalls';
 import { useContext } from 'react';
 
-function Products() {
+function Movies() {
     const { id } = useParams();  
   const [movie, setMovie] = useState(null);
   const [updatedMovie, setUpdateMovie] = useState(null);
@@ -47,42 +47,42 @@ function Products() {
   if(movie){
   return (
     
-    <div className='Products'>
-      <div className="productTitleContainer">
-        <h1 className="productTitle">Movie/Series</h1>
-        <Link to="/NewProduct" className='Link'>
-          <button className="productAddButton">Create</button>
+    <div className='movies'>
+      <div className="movieTitleContainer">
+        <h1 className="movieTitle">Movie/Series</h1>
+        <Link to="/NewMovie" className='Link'>
+          <button className="movieAddButton">Create</button>
         </Link>
       </div>
-      <Paper  elevation={3} className="productTop">
-          <div className="productTopRight">
-              <div className="productInfoTop">
-                  <img src={ `/images/${movie.imgSm}`} alt="movie Img" className="productInfoImg" />
-                  <span className="productName">{movie.title}</span>
+      <Paper  elevation={3} className="movieTop">
+          <div className="movieTopRight">
+              <div className="movieInfoTop">
+                  <img src={ `/images/${movie.imgSm}`} alt="movie Img" className="movieInfoImg" />
+                  <span className="movieName">{movie.title}</span>
               </div>
-              <div className="productInfoBottom">
-                  <div className="productInfoItem">
-                      <span className="productInfoKey">id:</span>
-                      <span className="productInfoValue">{movie._id}</span>
+              <div className="movieInfoBottom">
+                  <div className="movieInfoItem">
+                      <span className="movieInfoKey">id:</span>
+                      <span className="movieInfoValue">{movie._id}</span>
                   </div>
-                  <div className="productInfoItem">
-                      <span className="productInfoKey">Genre:</span>
-                      <span className="productInfoValue">{movie.genre}</span>
+                  <div className="movieInfoItem">
+                      <span className="movieInfoKey">Genre:</span>
+                      <span className="movieInfoValue">{movie.genre}</span>
                   </div>
-                  <div className="productInfoItem">
-                      <span className="productInfoKey">Limit:</span>
-                      <span className="productInfoValue">{movie.limit}</span>
+                  <div className="movieInfoItem">
+                      <span className="movieInfoKey">Limit:</span>
+                      <span className="movieInfoValue">{movie.limit}</span>
                   </div>
-                  <div className="productInfoItem">
-                      <span className="productInfoKey">is_Series:</span>
-                      <span className="productInfoValue">{movie.isSeries?"yes":"no"}</span>
+                  <div className="movieInfoItem">
+                      <span className="movieInfoKey">is_Series:</span>
+                      <span className="movieInfoValue">{movie.isSeries?"yes":"no"}</span>
                   </div>
               </div>
           </div>
       </Paper>
-      <Paper elevation={3} className="productBottom">
-        <form className="productForm" onSubmit={handleSubmit}>
-          <div className="productFormLeft">
+      <Paper elevation={3} className="movieBottom">
+        <form className="movieForm" onSubmit={handleSubmit}>
+          <div className="movieFormLeft">
             <label>Movie Title</label>
             <input type="text" value={updatedMovie.title || ''} name="title" onChange={handleChange} />
             <label>Description</label>
@@ -105,26 +105,26 @@ function Products() {
             <label>Video</label>
             <input type="text" value={updatedMovie.video || ''} name="video" onChange={handleChange} />
             </div>
-              <div className="productFormRight">
-                  <div className="productUpload">
-                      <img src={`/images/${movie.img}`} alt="" className="productUploadImg" />
+              <div className="movieFormRight">
+                  <div className="movieUpload">
+                      <img src={`/images/${movie.img}`} alt="" className="movieUploadImg" />
                       <label htmlFor="file">
                       </label>
                       <input type="text" placeholder='movie Banner' name='img'  onChange={handleChange} />
                   </div>
-                  <div className="productUpload">
-                      <img src={`/images/${movie.imgTitle}`} alt="" className="productUploadImg" />
+                  <div className="movieUpload">
+                      <img src={`/images/${movie.imgTitle}`} alt="" className="movieUploadImg" />
                       <label htmlFor="file">
                       </label>
                       <input type="text" placeholder='movie title' name='imgTitle'  onChange={handleChange} />
                   </div>
-                  <div className="productUpload">
-                      <img src={`/images/${movie.imgSm}`} alt="" className="productUploadImg" />
+                  <div className="movieUpload">
+                      <img src={`/images/${movie.imgSm}`} alt="" className="movieUploadImg" />
                       <label htmlFor="file">
                       </label>
                       <input type="text" placeholder='movieposter' name='imgSm' onChange={handleChange} />
                   </div>
-                  <button type='submit' className="productButton">Update</button>
+                  <button type='submit' className="movieButton">Update</button>
               </div>
           </form>
       </Paper>
@@ -136,4 +136,4 @@ function Products() {
 }
  }
 
-export default Products
+export default Movies

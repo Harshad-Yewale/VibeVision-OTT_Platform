@@ -1,15 +1,15 @@
-.newProduct {
+.newMovie {
   flex: 4;
   padding: 20px;
 
 
-  .addProductForm {
+  .addMovieForm {
     margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
 
 
-    .addProductItem {
+    .addMovieItem {
       width: 250px;
       display: flex;
       flex-direction: column;
@@ -33,7 +33,7 @@
     }
 
 
-    .addProductButton {
+    .addMovieButton {
       margin-top: 10px;
       padding: 7px 10px;
       border: none;

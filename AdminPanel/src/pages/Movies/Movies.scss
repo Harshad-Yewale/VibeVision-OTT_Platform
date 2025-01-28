@@ -1,13 +1,13 @@
-.Products {
+.movies {
   flex: 4;
   padding: 20px;
 
-  .productTitleContainer {
+  .movieTitleContainer {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    .productAddButton {
+    .movieAddButton {
       width: 80px;
       border: none;
       padding: 5px;
@@ -19,17 +19,17 @@
     }
   }
 
-  .productTop {
+  .movieTop {
     display: flex;
 
   }
-  .productTopLeft,
-  .productTopRight {
+  .movieTopLeft,
+  .movieTopRight {
     flex: 1;
     
   }
 
-  .productFormLeft{
+  .movieFormLeft{
     max-height: 400px;
     display: flex;
     flex-wrap: wrap;
@@ -40,18 +40,18 @@
   }
    
   
-  .productTopRight {
+  .movieTopRight {
     padding: 20px;
     margin: 20px;
     -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
   }
 
-  .productInfoTop {
+  .movieInfoTop {
     display: flex;
     align-items: center;
   
-    .productInfoImg {
+    .movieInfoImg {
       width: 40px;
       height: 40px;
       border-radius: 50%;
@@ -59,44 +59,44 @@
       margin-right: 20px;
     }
 
-    .productName {
+    .movieName {
       font-weight: 600;
     }
   }
 
-  .productInfoBottom {
+  .movieInfoBottom {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
     align-items: self-start;
     gap: 12px;
 
-    .productInfoItem {
+    .movieInfoItem {
       width: 150px;
       display: flex;
       justify-content: space-between;
 
-      .productInfoKey{
+      .movieInfoKey{
         margin-right: 20px;
       }
 
-      .productInfoValue {
+      .movieInfoValue {
         font-weight: 300;
       }
     }
   }
 
-  .productBottom {
+  .movieBottom {
     padding: 20px;
     margin: 20px;
     -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
 
-    .productForm {
+    .movieForm {
       display: flex;
       justify-content: space-between;
 
-      .productFormLeft {
+      .movieFormLeft {
         display: flex;
         flex-direction: column;
 
@@ -118,16 +118,16 @@
 
       }
 
-      .productFormRight{
+      .movieFormRight{
         display: flex;
         flex-direction: column;
         justify-content: space-around;
 
-        .productUpload{
+        .movieUpload{
           display: flex;
           align-items: center;
 
-          .productUploadImg{
+          .movieUploadImg{
             width: 100px;
             height: 100px;
             border-radius: 10px;
@@ -138,7 +138,7 @@
 
       }
 
-      .productButton{
+      .movieButton{
         border: none;
         padding: 5px;
         border-radius: 5px;

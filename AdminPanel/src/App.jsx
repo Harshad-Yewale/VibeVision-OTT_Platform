@@ -6,9 +6,9 @@ import HomePage from "./pages/Homepage/HomePage";
 import UsersList from "./pages/UsersList/UsersList";
 import User from "./pages/Users/User";
 import NewUser from "./pages/NewUser/NewUser";
-import ProductList from "./pages/ProductList/ProductList";
-import Products from "./pages/Products/Products";
-import NewProduct from "./pages/NewProduct/NewProduct";
+import MovieList from "./pages/MovieList/MovieList";
+import Movies from "./pages/Movies/Movies";
+import NewMovie from "./pages/NewMovie/NewMovie";
 import ContentList from "./pages/contentList/ContentList";
 import Login from "./pages/login/login";
 import { AuthContext } from "./context/authContext/AuthContext";
@@ -39,9 +39,9 @@ function App() {
                 <Route path="/users" element={<UsersList />} />
                 <Route path="/user/:UserId" element={<User />} />
                 <Route path="/newUser" element={<NewUser />} />
-                <Route path="/movies" element={<ProductList />} />
-                <Route path="/Movie/:id" element={<Products />} />
-                <Route path="/newProduct" element={<NewProduct />} />
+                <Route path="/movies" element={<MovieList />} />
+                <Route path="/Movie/:id" element={<Movies />} />
+                <Route path="/newMovie" element={<NewMovie />} />
                 <Route path="/contentlists" element={<ContentList />} />
                 <Route path="/List/:id" element={<List />} />
                 <Route path="/newList" element={<NewList/>} />

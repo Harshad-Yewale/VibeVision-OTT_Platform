@@ -1,5 +1,5 @@
 import React, {useContext, useEffect} from 'react'
-import "./ProductList.scss"
+import "./MovieList.scss"
 import { DataGrid } from '@mui/x-data-grid'
 import Paper from '@mui/material/Paper';
 import { DeleteOutline } from "@mui/icons-material";
@@ -8,7 +8,7 @@ import { MovieContext } from '../../context/movieContext/MovieContext.jsx';
 import { deleteMovie, getMovies } from '../../context/movieContext/apiCalls.js';
 
 
-function ProductList() {
+function MovieList() {
   
 
   const {movies,dispatch}=useContext(MovieContext)
@@ -28,7 +28,7 @@ function ProductList() {
         { field: '_id', headerName: 'ID', width: 70 },
         { field: 'movie', headerName: 'Movies', width: 280, renderCell:(params)=>{
           return (
-            <div className="ProductListUser">
+            <div className="MovieListUser">
             <img src={`/images/${params.row.imgSm}`} alt=""/>
             {params.row.title}
             </div>)
@@ -43,11 +43,11 @@ function ProductList() {
           width: 130,
           renderCell:(params)=>{
             return(
-              <div className="ProductListAction">
+              <div className="MovieListAction">
                 <Link to={`/Movie/${params.row._id}`}>
-                <button className="ProductEditBtn">Edit</button>
+                <button className="MovieEditBtn">Edit</button>
                 </Link> 
-                <DeleteOutline className="ProductDelBtn" onClick={()=>{handleData(params.row)}}/>
+                <DeleteOutline className="MovieDelBtn" onClick={()=>{handleData(params.row)}}/>
               
               </div>
             )
@@ -58,7 +58,7 @@ function ProductList() {
 
 
   return (
-    <div className='ProductList'>
+    <div className='MovieList'>
        <Paper sx={{ height: 600, width: '100%' }}>
       <DataGrid
         rows={movies}
@@ -75,4 +75,4 @@ function ProductList() {
   )
 }
 
-export default ProductList
+export default MovieList
