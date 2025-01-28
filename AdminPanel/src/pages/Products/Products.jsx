@@ -49,7 +49,7 @@ function Products() {
     
     <div className='Products'>
       <div className="productTitleContainer">
-        <h1 className="productTitle">Product</h1>
+        <h1 className="productTitle">Movie/Series</h1>
         <Link to="/NewProduct" className='Link'>
           <button className="productAddButton">Create</button>
         </Link>
@@ -57,7 +57,7 @@ function Products() {
       <Paper  elevation={3} className="productTop">
           <div className="productTopRight">
               <div className="productInfoTop">
-                  <img src={movie.img} alt="movie Img" className="productInfoImg" />
+                  <img src={ `/images/${movie.imgSm}`} alt="movie Img" className="productInfoImg" />
                   <span className="productName">{movie.title}</span>
               </div>
               <div className="productInfoBottom">

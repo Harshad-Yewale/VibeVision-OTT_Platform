@@ -10,10 +10,10 @@ function List({ list }) {
   const [isMoved, setIsMoved] = useState(false);
   const [maxSlides, setMaxSlides] = useState(0);
 
-  const ITEM_WIDTH = 180; // Each item's width in px
+  const ITEM_WIDTH = 182; // Each item's width in px
   const ITEM_MARGIN = 10; // Left margin in px
   const TOTAL_ITEM_WIDTH = ITEM_WIDTH + ITEM_MARGIN; // Total space each item takes
-  const TOTAL_ITEMS = 14; // Total items in the list
+  const TOTAL_ITEMS = 10; // Total items in the list
 
   useEffect(() => {
     const updateMaxSlides = () => {
