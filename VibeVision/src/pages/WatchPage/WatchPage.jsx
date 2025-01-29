@@ -8,7 +8,16 @@ function WatchPage() {
   const navigate = useNavigate();
   const movie = location.state.movie;
   console.log(location)
-  const trailer = "https://www.youtube.com/embed/" + movie.trailer; 
+  let trailer="";
+  let movieVideo="";
+  if (movie.trailer===movie.video) {
+     trailer = "https://www.youtube.com/embed/" + movie.trailer;
+  }
+  else{
+    movieVideo=`/images/${movie.video}`;
+  }
+   console.log(trailer);
+   console.log(movieVideo);
   
 
   return (
@@ -19,7 +28,10 @@ function WatchPage() {
       </div>
       <h2 className='title'>Now Playing : {movie.title}</h2>
       <div className="video-container">
-   
+        {
+          movieVideo?
+          <video autoPlay progress controls src={movieVideo} className="video"></video>
+        :
         <iframe
           width="100%"
           height="100%"
@@ -27,6 +39,7 @@ function WatchPage() {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         ></iframe>
+    }
       </div>
     </div>
   );

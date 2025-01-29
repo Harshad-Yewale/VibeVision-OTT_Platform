@@ -18,7 +18,7 @@ function TopBar() {
       <div className="TopBarWrapper">
         <div className="leftSection"> 
           <Link to='./' className='Link'>
-            <img src='../../images/logo.png' alt='logo'/>
+            <img src='http://localhost:8080/logo.png' alt='logo'/>
             </Link>
             <span>Admin-Dashboard</span>
         </div>
@@ -35,7 +35,7 @@ function TopBar() {
             <div className='icon'>
             <SettingsOutlined className='icon'/>
             </div>
-            <img className='Aavtar' src='../../images/profile.jpg' alt='Avtar'/>
+            <img className='Aavtar' src='http://localhost:8080/profile.jpg' alt='Avtar'/>
             <button className='logout' onClick={handleLogout}>Logout</button>
           </div>
         </div>

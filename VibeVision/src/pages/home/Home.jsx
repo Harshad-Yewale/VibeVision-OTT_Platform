@@ -34,7 +34,7 @@ function Home({type}) {
   return (
     <div className="home">
       <Navbar/>
-      <Featured type={type} genre={setGenre}  />
+      <Featured type={type} genre={setGenre} />
       {lists.map((list) => (
       <List key={list.id} list={list} />
       ))}

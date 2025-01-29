@@ -42,7 +42,7 @@ function ListItem( {item}) {
  
   return (
     <div className='ListItem'>
-      <img src={`/images/${movie.imgSm}`} alt='poster'/>
+      <img src={`http://localhost:8080/${movie.imgSm}`} alt='poster'/>
       <div className="item-info">
       <span className='title'>{movie.title}</span>
         <div className="icon">

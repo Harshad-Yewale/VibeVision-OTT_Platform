@@ -29,7 +29,7 @@ function MovieList() {
         { field: 'movie', headerName: 'Movies', width: 280, renderCell:(params)=>{
           return (
             <div className="MovieListUser">
-            <img src={`/images/${params.row.imgSm}`} alt=""/>
+            <img src={`http://localhost:8080/${params.row.imgSm}`} alt=""/>
             {params.row.title}
             </div>)
         }},

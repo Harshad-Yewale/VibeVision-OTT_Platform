@@ -57,7 +57,7 @@ function Movies() {
       <Paper  elevation={3} className="movieTop">
           <div className="movieTopRight">
               <div className="movieInfoTop">
-                  <img src={ `/images/${movie.imgSm}`} alt="movie Img" className="movieInfoImg" />
+                  <img src={ `http://localhost:8080/${movie.imgSm}`} alt="movie Img" className="movieInfoImg" />
                   <span className="movieName">{movie.title}</span>
               </div>
               <div className="movieInfoBottom">
@@ -107,19 +107,19 @@ function Movies() {
             </div>
               <div className="movieFormRight">
                   <div className="movieUpload">
-                      <img src={`/images/${movie.img}`} alt="" className="movieUploadImg" />
+                      <img src={`http://localhost:8080/${movie.img}`} alt="" className="movieUploadImg" />
                       <label htmlFor="file">
                       </label>
                       <input type="text" placeholder='movie Banner' name='img'  onChange={handleChange} />
                   </div>
                   <div className="movieUpload">
-                      <img src={`/images/${movie.imgTitle}`} alt="" className="movieUploadImg" />
+                      <img src={`http://localhost:8080/${movie.imgTitle}`} alt="" className="movieUploadImg" />
                       <label htmlFor="file">
                       </label>
                       <input type="text" placeholder='movie title' name='imgTitle'  onChange={handleChange} />
                   </div>
                   <div className="movieUpload">
-                      <img src={`/images/${movie.imgSm}`} alt="" className="movieUploadImg" />
+                      <img src={`http://localhost:8080/${movie.imgSm}`} alt="" className="movieUploadImg" />
                       <label htmlFor="file">
                       </label>
                       <input type="text" placeholder='movieposter' name='imgSm' onChange={handleChange} />

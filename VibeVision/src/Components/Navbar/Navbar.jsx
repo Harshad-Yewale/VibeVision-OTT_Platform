@@ -21,7 +21,7 @@ function Navbar() {
     <div className={isScrolled ? 'Navbar Scrolled' : 'Navbar'}>
       <div className='container'>
         <div className="leftSection">
-          <img className='logo' src='../../images/logo.png' alt='logo'></img>
+          <img className='logo' src='http://localhost:8080/logo.png' alt='logo'></img>
           <Link to="/" className='Link'>
           <span>HomePage</span>
           </Link>

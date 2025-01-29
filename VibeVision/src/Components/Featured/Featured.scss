@@ -1,10 +1,25 @@
 @use "../../app" as app;
 
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+
+
+
+
+
 .featured{
   padding: 0 2px;
   position: relative;
-
-
+  animation: fade-in 1s ease-in-out;
+  
 
   .category{
     position: absolute;
@@ -35,6 +50,8 @@
     width: 100%;
     object-fit:cover;
     border-radius: 0px 0px 12px 12px;
+    
+
    
   }
 
@@ -47,6 +64,7 @@
     left: 50px;
     bottom: 100px;
     color: white;
+    
     img{
       width: 42vw;
       height: 20vh;
