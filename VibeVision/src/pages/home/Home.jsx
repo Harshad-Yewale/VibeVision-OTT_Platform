@@ -35,9 +35,9 @@ function Home({type}) {
     <div className="home">
       <Navbar/>
       <Featured type={type} genre={setGenre} />
-      {lists.map((list) => (
-      <List key={list.id} list={list} />
-      ))}
+      {lists?lists.map((list) => (
+          <List key={list.id} list={list} />
+      )):"<h1>nothing to show</h1>"}
     </div>
   )
 }

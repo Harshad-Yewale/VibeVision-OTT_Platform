@@ -20,8 +20,9 @@ function Featured({type},{setGenre}) {
     getFeatured();
   } , [type]);
   
-  
+  if (movie) {
   return (
+   
     <div className='featured'> 
     {type && (
       <div className="category">
@@ -59,7 +60,12 @@ function Featured({type},{setGenre}) {
       </div>
     </div>
     </div>
+  
   )
+}
+else {
+  return <div className="nofeatured">NOTHING TO SHOW  :(</div>
+}
 }
 
 export default Featured

@@ -14,11 +14,20 @@
 
 
 
-
+  .nofeatured{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 526px;
+    font-size: 30px;
+    color: white;
+  }
 .featured{
   padding: 0 2px;
   position: relative;
   animation: fade-in 1s ease-in-out;
+  
+  
   
 
   .category{

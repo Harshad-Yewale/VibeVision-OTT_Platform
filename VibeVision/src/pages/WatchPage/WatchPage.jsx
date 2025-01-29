@@ -14,7 +14,7 @@ function WatchPage() {
      trailer = "https://www.youtube.com/embed/" + movie.trailer;
   }
   else{
-    movieVideo=`/images/${movie.video}`;
+    movieVideo=`http://localhost:8080/${movie.video}`;
   }
    console.log(trailer);
    console.log(movieVideo);
