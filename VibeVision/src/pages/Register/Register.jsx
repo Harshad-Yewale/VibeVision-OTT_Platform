@@ -39,7 +39,7 @@ const Register = () => {
     <div className="register">
       <div className="register-left">
         <div className="logo">
-          <img src="../../../images/logo.png" alt="Logo" />
+          <img src="http://localhost:8080/logo.png" alt="Logo" />
           <h1>Movie Streaming Made Easy</h1>
         </div>
       </div>

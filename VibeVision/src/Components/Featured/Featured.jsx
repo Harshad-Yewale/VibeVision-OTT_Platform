@@ -4,7 +4,7 @@ import {PlayArrow, InfoOutlined} from '@mui/icons-material';
 import axios from 'axios';
 import {Link} from "react-router-dom"
 import WatchPage from "../../pages/WatchPage/WatchPage.jsx"
-function Featured({type},{setGenre}) {
+function Featured({type, setGenre}) {
 
   const [movie, setmovie] = useState({});
 
@@ -28,20 +28,10 @@ function Featured({type},{setGenre}) {
       <div className="category">
         <span>{type === "Movie"? "Movie" : "Series"}</span>
         <select name='Genre' id='genre' onChange={e=>setGenre(e.target.value) }>
-          <option>Genre</option>
-          <option value="adventure">Adventure</option>
+          <option value="All">All</option>
           <option value="action">Action</option>
-          <option value="comedy">Comedy</option>
-          <option value="crime">Crime</option>
-          <option value="fantasy">Fantasy</option>
-          <option value="historical">Historical</option>
           <option value="horror">Horror</option>
-          <option value="rommance">Rommance</option>
-          <option value="sci-Fi">Sci-Fi</option>
-          <option value="thriller">Thriller</option>
           <option value="animation">Animation</option>
-          <option value="drama">Drama</option>
-          <option value="documentary">Documentary</option>
         </select>
       </div>
     )}    

@@ -9,11 +9,10 @@ import { updateList } from '../../context/listContext/apiCalls';
 import { useContext } from 'react';
 
 function Products() {
-    const { id } = useParams();  
+  const { id } = useParams();  
   const [list, setList] = useState(null);
   const [updatedList, setUpdateList] = useState(null);
   const {dispatch}= useContext(ListContext)
-  
   useEffect(() => {
     const getList = async () => {
       try {
@@ -30,7 +29,6 @@ function Products() {
     }
     getList();
   }, [id]);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUpdateList((prev) => ({
@@ -38,15 +36,11 @@ function Products() {
       [name]: value,
     }));
   };
-  console.log(updatedList)
-
   const handleSubmit=(e)=>{
      updateList(id,updatedList, dispatch)
   }
-
   if(list){
   return (
-    
     <div className='Products'>
       <div className="productTitleContainer">
         <h1 className="productTitle">Product</h1>
@@ -90,12 +84,8 @@ function Products() {
               </div>
           </form>
       </Paper>
-      
     </div>
-
   )
-  
 }
  }
-
 export default Products

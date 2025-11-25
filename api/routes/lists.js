@@ -12,14 +12,12 @@ router.post('/',verify, async (req, res) => {
         } catch (err) {
             res.status(500).json(err);
         }
-      
     }else{
         res.status(403).json("You are not allowed!");
     }
 });
 
 //DELETE
-
 router.delete('/:id',verify, async (req, res) => {
     if( req.user.isAdmin==true){
         try {
@@ -34,7 +32,6 @@ router.delete('/:id',verify, async (req, res) => {
 });
 
 //GET
-
 router.get('/',verify, async (req, res) => {
   typeQuery = req.query.type;
   genreQuery = req.query.genre;
@@ -63,7 +60,6 @@ router.get('/',verify, async (req, res) => {
 );
 
 //getby id
-
 router.get('/find/:id',verify, async (req, res) => {
 
   try {
@@ -75,7 +71,6 @@ router.get('/find/:id',verify, async (req, res) => {
 });
 
 //update
-
 router.put('/:id',verify, async (req, res) => {
   if( req.user.isAdmin==true){
       try {
@@ -91,7 +86,6 @@ router.put('/:id',verify, async (req, res) => {
       res.status(403).json("You are not allowed!");
   }
 });
-
 module.exports = router;
 
 

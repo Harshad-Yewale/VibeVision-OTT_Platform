@@ -8,10 +8,14 @@ import axios from 'axios';
 function Home({type}) {
 
   const [lists, setLists] = useState([]);
-  const [genre, setGenre] = useState(null);
+  let [genre, setGenre] = useState(null);
   const user=JSON.parse(localStorage.getItem("user"))
   const username=user.username
   
+  
+  if (genre === "All" ) {
+    setGenre(null)
+  }
   useEffect(() => {
     const getRandomLists = async () => {
       try {
@@ -19,9 +23,7 @@ function Home({type}) {
           headers: {
             token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken
           }
-
         });
-
         setLists(res.data);
       }
       catch (err) {
@@ -34,7 +36,7 @@ function Home({type}) {
   return (
     <div className="home">
       <Navbar/>
-      <Featured type={type} genre={setGenre} />
+      <Featured type={type} setGenre={setGenre} />
       {lists?lists.map((list) => (
           <List key={list.id} list={list} />
       )):"<h1>nothing to show</h1>"}

@@ -16,28 +16,27 @@ function Navbar() {
     setIsScrolled(window.scrollY ===0 ? false : true);
      return ()=> window.onscroll==null;
   }
-
+  const refreshPage=()=>{
+    window.location.reload();
+  }
   return (
+    <>
     <div className={isScrolled ? 'Navbar Scrolled' : 'Navbar'}>
       <div className='container'>
         <div className="leftSection">
           <img className='logo' src='http://localhost:8080/logo.png' alt='logo'></img>
-          <Link to="/" className='Link'>
+          <Link  to="/"   className='Link'>
           <span>HomePage</span>
           </Link>
-          <Link to="/Movie" className=' Link'>
+          <Link to="/Movie"  className=' Link'>
           <span className='navbarmainLinks'>Movies</span>
           </Link>
-          <Link to="/Series" className=' Link'>
+          <Link to="/Series"  className=' Link'>
           <span className='navbarmainLinks'>Series</span>
           </Link>
-          <span>New-and-Popular</span>
-          <span>My List</span>
         </div>
         <div className="rightSection">
-          
           <Search className='icon'/>
-          
           <div className="profile">
           <Person2Outlined className='icon'/>
           <span className='user'>{username}</span>
@@ -48,9 +47,8 @@ function Navbar() {
           </div>
         </div>
       </div>
-      
     </div>
+  </>
   )
 }
-
 export default Navbar

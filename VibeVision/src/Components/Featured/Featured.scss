@@ -1,6 +1,4 @@
 @use "../../app" as app;
-
-
   @keyframes fade-in {
     0% {
       opacity: 0;
@@ -9,27 +7,14 @@
       opacity: 1;
     }
   }
-  
-
-
-
-
   .nofeatured{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 526px;
-    font-size: 30px;
-    color: white;
+    display: flex; justify-content: center; align-items: center;
+    height: 526px; font-size: 30px; color: white;
   }
 .featured{
-  padding: 0 2px;
-  position: relative;
-  animation: fade-in 1s ease-in-out;
-  
-  
-  
-
+   padding: 0 2px;
+   position: relative;
+   animation: fade-in 1s ease-in-out;
   .category{
     position: absolute;
     display: flex;
@@ -46,25 +31,17 @@
     color: white;
     margin-left: 5px;
     cursor: pointer;
-
     }
   }
-
   .Container{
     height: 525px;
   }
-
   img{
     height: 520px;
     width: 100%;
     object-fit:cover;
     border-radius: 0px 0px 12px 12px;
-    
-
-   
   }
-
-
   .info{
     width: 35%;
     display: flex;
@@ -73,35 +50,27 @@
     left: 50px;
     bottom: 100px;
     color: white;
-    
     img{
       width: 42vw;
       height: 20vh;
       margin-left: -80px;
       object-fit: contain;
-      
-     
     }
     .desc{
       margin-top:20px ;
       margin-bottom: 10px;
       font-size: large;
       font-weight: 450;
-
       &{
       @include app.mobile {
         width: 80wh;
       }
-
     }
-      
     }
-
     .buttons{
       display: flex;
       flex-direction: row;
       margin-top: 10px;
-
       button{
         padding: 8px 12px;
         display: flex;
@@ -117,7 +86,6 @@
         background-color: var(--hover-color);
         transition: all 0.2s;
       }
-      
       .playButton:hover{
         transform: scale(1);
         background-color: rgb(163, 28, 28);
@@ -130,12 +98,9 @@
         border: none;
         color: white;
       }
-
       span{
         margin-left: 5px;
       }
-      
-    }
-    
+    } 
   }
 }

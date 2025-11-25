@@ -19,7 +19,6 @@ router.post('/',verify, async (req, res) => {
 });
 
 //UPDATE
-
 router.put('/:id',verify, async (req, res) => {
     if( req.user.isAdmin==true){
         try {
@@ -30,7 +29,6 @@ router.put('/:id',verify, async (req, res) => {
         } catch (err) {
             res.status(500).json(err);
         }
-      
     }else{
         res.status(403).json("You are not allowed!");
     }
@@ -38,7 +36,6 @@ router.put('/:id',verify, async (req, res) => {
 
 
 //DELETE
-
 router.delete('/:id',verify, async (req, res) => {
     if( req.user.isAdmin==true){
         try {
@@ -53,7 +50,6 @@ router.delete('/:id',verify, async (req, res) => {
 });
 
 //GET
-
 router.get("/find/:id", verify, async (req, res) => {
     try {
       const movie = await Movie.findById(req.params.id);
@@ -63,9 +59,7 @@ router.get("/find/:id", verify, async (req, res) => {
     }
   });
   
-
 //GET RANDOM
-
 router.get('/random', async (req, res) => {
     const type = req.query.type;
     let movie;
@@ -88,7 +82,6 @@ router.get('/random', async (req, res) => {
 });
 
 //GET ALL
-
 router.get('/',verify, async (req, res) => {
     if( req.user.isAdmin==true){
         try {
@@ -102,10 +95,5 @@ router.get('/',verify, async (req, res) => {
     }
 }
 );
-
-
-
-
-
 module.exports = router;
 

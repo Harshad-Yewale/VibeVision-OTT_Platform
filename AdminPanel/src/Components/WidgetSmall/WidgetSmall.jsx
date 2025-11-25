@@ -37,6 +37,9 @@ function WidgetSmall() {
           <div className="widgetSmallUserInfo">
             <span className="widgetSmalluserName">{newUsers.username}</span>
           </div>
+          <div className="widgetSmallUserInfo">
+            <span className="widgetSmalluserName">{newUsers.email}</span>
+          </div>
           <button className="widgetSmallButton">
             <Visibility className='icon'/>
             <span className="Display">Display</span>

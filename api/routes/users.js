@@ -23,7 +23,6 @@ router.put('/:id',verify, async (req, res) => {
 });
 
 //DELETE
-
 router.delete('/:id',verify, async (req, res) => {
     if(req.user.id === req.params.id || req.user.isAdmin==true){
         try {
@@ -91,9 +90,5 @@ router.get('/stats', async (req, res) => {
     }
   }
 );
-
-
-
-
 module.exports = router;
 

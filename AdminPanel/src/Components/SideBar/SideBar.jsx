@@ -36,7 +36,6 @@ function SideBar() {
               <span>Users</span>
             </li>
             </Link>
-            
             <Link to="./Movies" className='Link'>
             <li className="listItem">
             < MovieFilter className='sideBarIcon'/>

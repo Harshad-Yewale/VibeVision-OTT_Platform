@@ -29,9 +29,7 @@ function ContentList() {
         { field: 'genre', headerName: 'Genre', width: 100 },
         { field: 'type', headerName: 'Type', width: 100 },
         {
-          field: 'Actions',
-          headerName: 'Actions',
-          width: 130,
+          field: 'Actions', headerName: 'Actions', width: 130,
           renderCell:(params)=>{
             return(
               <div className="ProductListAction">
@@ -46,8 +44,6 @@ function ContentList() {
         },
         
       ];
-
-
   return (
     <div className='ProductList'>
        <Paper sx={{ height: 600, width: '100%' }}>

@@ -26,6 +26,8 @@ app.use("/api/users", userRoute);
 app.use("/api/movies", movieRoute);
 app.use("/api/lists", listRoute);
 
+
+
 app.listen(8800, () => {
     console.log('Server is running on port 8800');
 });

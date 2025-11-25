@@ -18,9 +18,7 @@ function MovieList() {
   },[dispatch])
 
 
-  console.log(movies)
     const handleData=(item)=>{
-        console.log(item._id)
         deleteMovie(item._id,dispatch)
     }
 

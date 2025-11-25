@@ -3,7 +3,6 @@ import './HomePage.scss'
 import FeaturedInfo from '../../Components/FeaturedInfo/FeaturedInfo'
 import Chart from '../../Components/Chart/Chart'
 import WidgetSmall from '../../Components/WidgetSmall/WidgetSmall'
-import WidgetLarge from '../../Components/WidgetLarge/WidgetLarge'
 import axios from 'axios'
 
 
@@ -48,7 +47,6 @@ function HomePage() {
         <Chart data={userStats} Title={"User Analytics"} grid dataKey={"New Users"}/>
         <div className="widgets">
           <WidgetSmall/>
-          <WidgetLarge/>
         </div>
     </div>
   )

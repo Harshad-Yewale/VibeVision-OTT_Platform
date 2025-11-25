@@ -7,7 +7,6 @@ function WatchPage() {
   const location = useLocation();
   const navigate = useNavigate();
   const movie = location.state.movie;
-  console.log(location)
   let trailer="";
   let movieVideo="";
   if (movie.trailer===movie.video) {
@@ -16,10 +15,7 @@ function WatchPage() {
   else{
     movieVideo=`http://localhost:8080/${movie.video}`;
   }
-   console.log(trailer);
-   console.log(movieVideo);
   
-
   return (
     <div className="WatchPage">
       <div className="back" onClick={() => navigate(-1)}> 

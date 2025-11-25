@@ -1,50 +1,72 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './UsersList.scss'
 import { DataGrid } from '@mui/x-data-grid'
 import Paper from '@mui/material/Paper';
-import { Userrows } from '../../dummyData/DummyData.jsx'
 import { DeleteOutline } from "@mui/icons-material";
 import {Link} from 'react-router-dom'
+import { UserContext } from '../../context/UserContext/UserContext.jsx';
+import { deleteUser, getUsers } from '../../context/UserContext/apiCalls.js';
 
 
 function UsersList() {
-  const [data, setData]= useState(Userrows)
+  
+  const { users, dispatch } = useContext(UserContext);
+  console.log(users);
+
+  useEffect(() => {
+    console.log('Fetching users...');
+    getUsers(dispatch);
+  }, [dispatch]);
+
+  const formattedUsers = users.map((user) => ({
+    id: user._id,
+    ...user,
+  }));
+
   const handleData=(id)=>{
-    setData(data.filter( item=>item.id !== id))
+     deleteUser(id,dispatch)
   }
+
+
 
   const columns = [
     { field: 'id', headerName: 'ID', width: 70 },
     { field: 'User', headerName: 'User', width: 130, renderCell:(params)=>{
       return (
         <div className="UserListUser">
-        <img src={params.row.Avatar} alt=""/>
-        {params.row.Username}
+         <img src={params.row.Avatar|| "https://media.istockphoto.com/id/610003972/vector/vector-businessman-black-silhouette-isolated.jpg?s=612x612&w=0&k=20&c=Iu6j0zFZBkswfq8VLVW8XmTLLxTLM63bfvI6uXdkacM="} alt=""/> 
+        {params.row.username}
         </div>)
     }},
-    { field: 'Email', headerName: 'Email', width: 170 },
-    {
-      field: 'Status',
-      headerName: 'Status',
-      width: 100,
+
+    { field: 'email', headerName: 'Email', width: 170 },
+    { field: 'isAdmin', headerName: 'Admin?', width: 100,renderCell: (params) => {
+      return <span>{params.row.isAdmin ? 'Yes' : 'No'}</span>;
+      }
     },
-    {
-      field: 'Transaction',
-      headerName: 'Transaction',
-      width: 130,
-    },
+
+    { field: 'createdAt', headerName: 'Register Date', width: 150,
+      renderCell: (params) => {
+      const date = new Date(params.row.createdAt);
+      const formattedDate = date.toISOString().split('T')[0];
+      return <span>{formattedDate}</span>;
+    } },
+
+    { field: 'updatedAt', headerName: 'Last Update Date', width: 150,
+      renderCell: (params) => {
+      const date = new Date(params.row.createdAt);
+      const formattedDate = date.toISOString().split('T')[0];
+      return <span>{formattedDate}</span>;
+    } },
+    
     {
       field: 'Actions',
       headerName: 'Actions',
-      width: 130,
+      width: 100,
       renderCell:(params)=>{
         return(
           <div className="UserListAction">
-            <Link to={"/User/"+params.row.id}>
-            <button className="UserEditBtn">Edit</button>
-            </Link> 
-            <DeleteOutline className="UserDelBtn" onClick={()=>{handleData(params.row.id)}}/>
-          
+            {params.row.isAdmin ? " " :<DeleteOutline className="UserDelBtn" onClick={()=>{handleData(params.row.id)}}/>}
           </div>
         )
       }
@@ -55,7 +77,7 @@ function UsersList() {
     <div className='UserList'>
       <Paper sx={{ height: 600, width: '100%' }}>
       <DataGrid
-        rows={data}
+        rows={formattedUsers}
         disableRowSelectionOnClick
         columns={columns}
         pageSizeOptions={[5, 10]}
@@ -66,5 +88,4 @@ function UsersList() {
     </div>
   )
 }
-
 export default UsersList

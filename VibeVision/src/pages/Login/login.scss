@@ -5,7 +5,7 @@
       rgba(0, 0, 0, 0.4) 0%,
       rgba(0,0,0,0.6)50%,
       rgba(0, 0, 0, 1)100%
-    ),url("../../../images/background.jpg") center/cover no-repeat;
+    ),url("http://localhost:8080/background.jpg") center/cover no-repeat;
 
   .Login-left {
     flex: 1;
@@ -28,10 +28,7 @@
         text-align: center;
       }
     }
-   
-    
   }
-
   .Login-form-container {
     flex: 1;
     display: flex;

@@ -35,7 +35,7 @@ const Login = () => {
     <div className="Login">
       <div className="Login-left">
         <div className="logo">
-        <img src="../../../images/logo.png"/>
+        <img src="http://localhost:8080/logo.png"/>
         <h1>Movie Streaming Made Easy</h1>
         </div>
       </div>
@@ -50,6 +50,9 @@ const Login = () => {
           </button>
           <p>
             New User? <a href="./Register">Create Account</a>
+          </p>
+          <p>
+             <a href="./forgotPassword" target="_blank">forgot Password</a>
           </p>
         </form>
       </div>

@@ -7,16 +7,23 @@ import Login from "./pages/Login/Login";
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { useContext } from 'react'
 import { AuthContext } from './authContext/AuthContext'
+import ForgotPassword from './pages/forgotPassword/forgotPassword'
+import ResetPassword from './pages/resetPassword/ResetPassword'
 
 function App() {
-  const {user}=useContext(AuthContext);
+  let {user}=useContext(AuthContext);
+  if(user === undefined || user === null){
+    user = false;
+  }
   return (
     <>
     <Router>
       <Routes>
-        <Route path="/" element={user ? <Home  />:<Navigate to="/Login" replace />} />
+        <Route path="/" element={user ? <Home/>:<Navigate to="/Login" replace />} />
         <Route path="/Register" element={! user ? <Register />:<Navigate to="/" replace />} />
         <Route path="/Login" element={!user ? <Login />:<Navigate to="/" replace />} />
+        <Route  path="/forgotPassword"  element={ <ForgotPassword/>} />
+        <Route path='/resetPassword/:id/:token' element={<ResetPassword />} />
         <Route path="/Movie" element={user ? <Home type="Movie" />:<Navigate to="/Login" replace />} />
         <Route path="/Series" element={user ? <Home type="Series" />:<Navigate to="/Login" replace />}/>
         <Route path="/WatchPage" element={user ? <WatchPage />:<Navigate to="/Login" replace />} />

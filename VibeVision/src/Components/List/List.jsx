@@ -19,7 +19,7 @@ function List({ list }) {
     const updateMaxSlides = () => {
       const containerWidth = window.innerWidth;
       const visibleItems = Math.floor(containerWidth / TOTAL_ITEM_WIDTH);
-      setMaxSlides(TOTAL_ITEMS - visibleItems);
+      setMaxSlides(Math.max(0, TOTAL_ITEMS - visibleItems));
     };
 
     updateMaxSlides();
@@ -31,39 +31,42 @@ function List({ list }) {
   }, []);
 
   const moveSlider = (direction) => {
+    if (!listRef.current) return;
+
     setIsMoved(true);
-    let distance = listRef.current.getBoundingClientRect().x - listRef.current.offsetLeft;
+    let currentTransform = listRef.current.style.transform || "translateX(0px)";
+    let currentX = parseInt(currentTransform.replace("translateX(", "").replace("px)", "")) || 0;
 
     if (direction === "left" && slideNumber > 0) {
       setSlideNumber(slideNumber - 1);
-      listRef.current.style.transform = `translateX(${distance + TOTAL_ITEM_WIDTH}px)`;
+      listRef.current.style.transform = `translateX(${currentX + TOTAL_ITEM_WIDTH}px)`;
     }
 
     if (direction === "right" && slideNumber < maxSlides) {
       setSlideNumber(slideNumber + 1);
-      listRef.current.style.transform = `translateX(${distance - TOTAL_ITEM_WIDTH}px)`;
+      listRef.current.style.transform = `translateX(${currentX - TOTAL_ITEM_WIDTH}px)`;
     }
   };
 
   return (
     <div className="List">
-      <span className="category-title">{list.title}</span>
-      <div className="wrapper">
-        <ArrowBackIosNewOutlined
-          className="Arrows left"
-          onClick={() => moveSlider("left")}
-          style={{ display: !isMoved && "none" }}
-        />
-        <Paper elevation={2} className="container" ref={listRef}>
-          {list.content.map((item) => (
-            <ListItem key={item.id} item={item} />
-          ))}
-        </Paper>
-        <ArrowForwardIosOutlined
-          className="Arrows right"
-          onClick={() => moveSlider("right")}
-        />
-      </div>
+          <span className="category-title">{list.title}</span>
+          <div className="wrapper">
+            <ArrowBackIosNewOutlined
+              className="Arrows left"
+              onClick={() => moveSlider("left")}
+              style={{ display: !isMoved ? "none" : "block" }}
+            />
+            <Paper elevation={2} className="container" ref={listRef}>
+              {list.content.map((item) => (
+                <ListItem key={item.id} item={item} />
+              ))}
+            </Paper>
+            <ArrowForwardIosOutlined
+              className="Arrows right"
+              onClick={() => moveSlider("right")}
+            />
+          </div>
     </div>
   );
 }
