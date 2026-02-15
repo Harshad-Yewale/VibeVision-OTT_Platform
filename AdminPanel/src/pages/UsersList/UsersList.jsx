@@ -18,11 +18,12 @@ function UsersList() {
     getUsers(dispatch);
   }, [dispatch]);
 
-  const formattedUsers = users.map((user) => ({
-    id: user._id,
-    ...user,
-  }));
-
+  const formattedUsers = Array.isArray(users)
+  ? users.map(user => ({
+      id: user._id,
+      ...user,
+    }))
+  : [];
   const handleData=(id)=>{
      deleteUser(id,dispatch)
   }
@@ -54,7 +55,7 @@ function UsersList() {
 
     { field: 'updatedAt', headerName: 'Last Update Date', width: 150,
       renderCell: (params) => {
-      const date = new Date(params.row.createdAt);
+      const date = new Date(params.row.updatedAt);;
       const formattedDate = date.toISOString().split('T')[0];
       return <span>{formattedDate}</span>;
     } },

@@ -17,11 +17,12 @@ function Movies() {
   useEffect(() => {
     const getMovie = async () => {
       try {
-        const res = await axios.get("/movies/find/"+id, {
-          headers: {
-            token: "Bearer "+ JSON.parse(localStorage.getItem("user")).accessToken,
-          },
-        });
+        const res = await axios.get("/api/movies/find/" + id, {
+        headers: {
+          token: "Bearer " +
+            JSON.parse(localStorage.getItem("user")).accessToken,
+        },
+      });
         setMovie(res.data);
         setUpdateMovie(res.data);
       } catch (err) { 
@@ -40,9 +41,10 @@ function Movies() {
   };
   console.log(updatedMovie)
 
-  const handleSubmit=(e)=>{
-     updateMovie(id,updatedMovie, dispatch)
-  }
+  const handleSubmit = (e) => {
+  e.preventDefault();
+  updateMovie(id, updatedMovie, dispatch);
+};
 
   if(movie){
   return (
@@ -57,7 +59,7 @@ function Movies() {
       <Paper  elevation={3} className="movieTop">
           <div className="movieTopRight">
               <div className="movieInfoTop">
-                  <img src={ `http://localhost:8080/${movie.imgSm}`} alt="movie Img" className="movieInfoImg" />
+                  <img src={ `/images/${movie.imgSm}`} alt="movie Img" className="movieInfoImg" />
                   <span className="movieName">{movie.title}</span>
               </div>
               <div className="movieInfoBottom">
@@ -107,19 +109,19 @@ function Movies() {
             </div>
               <div className="movieFormRight">
                   <div className="movieUpload">
-                      <img src={`http://localhost:8080/${movie.img}`} alt="" className="movieUploadImg" />
+                      <img src={`/images/${movie.img}`} alt="" className="movieUploadImg" />
                       <label htmlFor="file">
                       </label>
                       <input type="text" placeholder='movie Banner' name='img'  onChange={handleChange} />
                   </div>
                   <div className="movieUpload">
-                      <img src={`http://localhost:8080/${movie.imgTitle}`} alt="" className="movieUploadImg" />
+                      <img src={`/images/${movie.imgTitle}`} alt="" className="movieUploadImg" />
                       <label htmlFor="file">
                       </label>
                       <input type="text" placeholder='movie title' name='imgTitle'  onChange={handleChange} />
                   </div>
                   <div className="movieUpload">
-                      <img src={`http://localhost:8080/${movie.imgSm}`} alt="" className="movieUploadImg" />
+                      <img src={`/images/${movie.imgSm}`} alt="" className="movieUploadImg" />
                       <label htmlFor="file">
                       </label>
                       <input type="text" placeholder='movieposter' name='imgSm' onChange={handleChange} />

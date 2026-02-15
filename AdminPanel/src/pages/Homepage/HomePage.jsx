@@ -14,32 +14,52 @@ function HomePage() {
   
   const [userStats,setUserStats]=useState([])
   
-  useEffect(()=>{
-    const getStats=async()=>{
-      try{
-        const res=await axios.get("users/stats",{
-          headers:{
-            token:"Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
-          },
-        })
-        const statsList=res.data.sort((a,b)=>{
-          return a._id-b._id
-        })  
+  useEffect(() => {
 
-        const formattedStats = statsList.map((item) => ({
-          name: MONTHS[item._id - 1],
-          "New Users": item.total,
-        }));
-  
-        setUserStats(formattedStats);
-      }
-      catch(err){
-        console.log(err)
-      }
+  const getStats = async () => {
+
+    try {
+
+      const res = await axios.get("/api/users/stats", {
+
+        headers: {
+          token:
+            "Bearer " +
+            JSON.parse(localStorage.getItem("user")).accessToken,
+        },
+
+      });
+
+
+      const statsList = Array.isArray(res.data)
+        ? res.data.sort((a, b) => a._id - b._id)
+        : [];
+
+
+      const formattedStats = statsList.map((item) => ({
+
+        name: MONTHS[item._id - 1],
+
+        "New Users": item.total,
+
+      }));
+
+
+      setUserStats(formattedStats);
+
+    } catch (err) {
+
+      console.log(err);
+
     }
-    getStats()
-  }
-  ,[])
+
+  };
+
+
+  getStats();
+
+}, [MONTHS]);
+
 
   return (
     <div className='Home'>

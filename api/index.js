@@ -21,6 +21,9 @@ app.use((err, req, res, next) => {
 
 app.use(express.json());
 
+const path = require("path");
+app.use("/images", express.static(path.join(__dirname, "..", "images")));
+
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/movies", movieRoute);

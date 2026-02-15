@@ -13,22 +13,41 @@ function Products() {
   const [list, setList] = useState(null);
   const [updatedList, setUpdateList] = useState(null);
   const {dispatch}= useContext(ListContext)
-  useEffect(() => {
-    const getList = async () => {
-      try {
-        const res = await axios.get("/lists/find/"+id, {
-          headers: {
-            token: "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
-          },
-        });
-        setList(res.data);
-        setUpdateList(res.data);
-      } catch (err) { 
-        console.log(err);
-      }
+ useEffect(() => {
+
+  const getList = async () => {
+
+    try {
+
+      const res = await axios.get("/api/lists/find/" + id, {
+
+        headers: {
+          token:
+            "Bearer " +
+            JSON.parse(localStorage.getItem("user")).accessToken,
+        },
+
+      });
+
+      setList(res.data);
+
+      setUpdateList(res.data);
+
+    } catch (err) {
+
+      console.log(err);
+
     }
-    getList();
-  }, [id]);
+
+  };
+
+  getList();
+
+}, [id]);
+
+
+
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUpdateList((prev) => ({
@@ -36,9 +55,12 @@ function Products() {
       [name]: value,
     }));
   };
-  const handleSubmit=(e)=>{
-     updateList(id,updatedList, dispatch)
-  }
+
+
+  const handleSubmit = (e) => {
+  e.preventDefault();
+  updateList(id, updatedList, dispatch);
+};
   if(list){
   return (
     <div className='Products'>
@@ -74,8 +96,13 @@ function Products() {
           <div className="productFormLeft">
             <label>List Title</label>
             <input type="text" value={updatedList.title || ''} name="title" onChange={handleChange}  />
-            <label>Type</label>
-            <input type="text" value={updatedList.type || ''} name="year" onChange={handleChange}  />
+           <label>Type</label>
+<input
+  type="text"
+  value={updatedList.type || ''}
+  name="type"
+  onChange={handleChange}
+/>
             <label>Genre</label>
             <input type="text" value={updatedList.genre || ''} name="genre" onChange={handleChange}  />
             </div>

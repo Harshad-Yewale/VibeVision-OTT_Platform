@@ -1,0 +1,20 @@
+{
+  "name": "vibevision-platform",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+
+    "backend": "cd api && npm run dev",
+
+    "frontend": "cd VibeVision && npm run dev",
+
+    "admin": "cd AdminPanel && npm run dev",
+
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\" \"npm run admin\""
+  },
+
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
+

@@ -31,19 +31,25 @@ function App() {
             />
 
             {/* Protected Routes */}
-            {user && (
-              <>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/users" element={<UsersList />} />
-                <Route path="/movies" element={<MovieList />} />
-                <Route path="/Movie/:id" element={<Movies />} />
-                <Route path="/newMovie" element={<NewMovie />} />
-                <Route path="/contentlists" element={<ContentList />} />
-                <Route path="/List/:id" element={<List />} />
-                <Route path="/newList" element={<NewList/>} />
-               
-              </>
-            )}
+           {user && (
+            <>
+              <Route path="/" element={<HomePage />} />
+
+              <Route path="/users" element={<UsersList />} />
+
+              <Route path="/movies" element={<MovieList />} />
+
+              <Route path="/movies/:id" element={<Movies />} />
+
+              <Route path="/newMovie" element={<NewMovie />} />
+
+              <Route path="/contentlists" element={<ContentList />} />
+
+              <Route path="/lists/:id" element={<List />} />
+
+              <Route path="/newList" element={<NewList />} />
+            </>
+          )}
 
             {/* Fallback Route */}
             <Route

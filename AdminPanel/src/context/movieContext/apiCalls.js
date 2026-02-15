@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import {
   createMovieFailure,
   createMovieStart,
@@ -14,62 +15,125 @@ import {
   updateMovieSuccess,
 } from "./MovieActions";
 
+
+// helper to safely get token
+const getToken = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  return user ? "Bearer " + user.accessToken : "";
+};
+
+
+
+// GET MOVIES
+
 export const getMovies = async (dispatch) => {
+
   dispatch(getMoviesStart());
+
   try {
-    const res = await axios.get("/movies", {
+
+    const res = await axios.get("/api/movies", {
       headers: {
-        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+        token: getToken(),
       },
     });
+
     dispatch(getMoviesSuccess(res.data));
+
   } catch (err) {
+
     dispatch(getMoviesFailure());
+
+    console.log(err);
+
   }
+
 };
 
 
-//create
+
+// CREATE MOVIE
+
 export const createMovie = async (movie, dispatch) => {
+
   dispatch(createMovieStart());
+
   try {
-    const res = await axios.post("/movies", movie, {
+
+    const res = await axios.post("/api/movies", movie, {
       headers: {
-        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+        token: getToken(),
       },
     });
+
     dispatch(createMovieSuccess(res.data));
+
   } catch (err) {
+
     dispatch(createMovieFailure());
+
+    console.log(err);
+
   }
+
 };
 
-//delete
+
+
+// DELETE MOVIE
+
 export const deleteMovie = async (id, dispatch) => {
+
   dispatch(deleteMovieStart());
+
   try {
-    await axios.delete("/movies/" + id, {
+
+    await axios.delete("/api/movies/" + id, {
       headers: {
-        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+        token: getToken(),
       },
     });
+
     dispatch(deleteMovieSuccess(id));
+
   } catch (err) {
+
     dispatch(deleteMovieFailure());
+
+    console.log(err);
+
   }
+
 };
 
-//update
+
+
+// UPDATE MOVIE
+
 export const updateMovie = async (id, updatedMovie, dispatch) => {
+
   dispatch(updateMovieStart());
+
   try {
-    const res = await axios.put(`/movies/${id}`, updatedMovie, {
-      headers: {
-        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-      },
-    });
+
+    const res = await axios.put(
+      "/api/movies/" + id,
+      updatedMovie,
+      {
+        headers: {
+          token: getToken(),
+        },
+      }
+    );
+
     dispatch(updateMovieSuccess(res.data));
+
   } catch (err) {
+
     dispatch(updateMovieFailure());
+
+    console.log(err);
+
   }
+
 };
